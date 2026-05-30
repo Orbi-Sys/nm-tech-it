@@ -10,7 +10,7 @@ import { TechStack } from "@/components/sections/TechStack";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { Process } from "@/components/sections/Process";
 import { Contact } from "@/components/sections/Contact";
-
+// This is the main page of the website, which composes all the sections together.
 export default function Home() {
   return (
     <GsapProvider>
