@@ -24,14 +24,16 @@ export function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link href="#" className="flex items-center gap-3 group">
-          <Image
-            src="/logo.png"
-            alt="NM-TECH IT Logo"
-            width={40}
-            height={40}
-            className="transition-transform duration-300 group-hover:scale-105"
-          />
+        <Link href="#" className="flex items-center gap-4 group">
+          <div className="relative w-[64px] h-[64px] shrink-0">
+            <Image
+              src="/logo.png"
+              alt="NM-TECH IT Logo"
+              width={64}
+              height={64}
+              className="transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
           <span className="hidden sm:block font-display text-sm font-semibold tracking-[0.2em] text-silver-bright uppercase">
             NM-TECH IT
           </span>

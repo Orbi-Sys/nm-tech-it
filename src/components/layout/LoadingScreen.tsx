@@ -25,14 +25,14 @@ export function LoadingScreen() {
             initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
             animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
+            className="relative w-[320px] h-[320px]"
           >
             <div className="absolute inset-0 blur-3xl bg-white/10 rounded-full scale-150 animate-pulse-glow" />
             <Image
               src="/logo.png"
               alt="NM-TECH IT"
-              width={180}
-              height={180}
+              width={320}
+              height={320}
               priority
               className="relative z-10 drop-shadow-[0_0_40px_rgba(255,255,255,0.15)]"
             />

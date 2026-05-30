@@ -1,4 +1,5 @@
 export const navLinks = [
+  { label: "Über mich", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Projekte", href: "#projects" },
   { label: "Tech Stack", href: "#tech" },
@@ -47,44 +48,36 @@ export const services = [
 
 export const projects = [
   {
-    title: "AI Chatbot System",
-    category: "KI & Automation",
+    title: "AI-gestütztes HubSpot Sales Dashboard",
+    category: "KI / Dashboard",
     description:
-      "Intelligenter Kundenservice-Bot mit OpenAI-Integration und CRM-Anbindung.",
+      "Echtzeit-Analyse von Leads und Deals via Webhooks mit n8n. KI-gestützte Deal-Bewertung mit Abschlusswahrscheinlichkeit, Risikoerkennung und Handlungsempfehlungen.",
     gradient: "from-zinc-800 via-zinc-900 to-black",
     accent: "KI",
   },
   {
-    title: "Restaurant Automation Platform",
+    title: "Automatisierte Spesenabrechnung & Excel-Verarbeitung",
     category: "Automation",
     description:
-      "Bestellungen, Reservierungen und Küchen-Workflows vollautomatisiert.",
+      "Workflow zur automatischen Verarbeitung von 600–800 CSV-Datensätzen aus Google Drive mit JavaScript-Filterlogik und Übertragung in Microsoft Excel. Zeitersparnis: ca. 4 Stunden pro Durchlauf.",
     gradient: "from-neutral-800 via-zinc-900 to-black",
-    accent: "AUTO",
+    accent: "AUTOMATION",
   },
   {
-    title: "Business Dashboard",
-    category: "Dashboard",
+    title: "Automatisierte PDF-Erstellung mit KI-Agenten",
+    category: "KI / Automation",
     description:
-      "Echtzeit-KPIs, Umsatztracking und Team-Performance in einer Oberfläche.",
+      "KI-gestützter Workflow zur automatischen Erstellung mehrseitiger Dokumente aus HTML-Daten. Zeitersparnis: ca. 1 Stunde pro Vorgang.",
     gradient: "from-stone-800 via-zinc-900 to-black",
-    accent: "DATA",
+    accent: "KI",
   },
   {
-    title: "Smart CRM Workflow",
-    category: "CRM",
+    title: "KI-gestützte Bewerberanalyse & Recruitee-Integration",
+    category: "KI",
     description:
-      "Automatisierte Lead-Pipeline mit KI-gestützter Priorisierung.",
+      "Automatisierte Analyse von Bewerberunterlagen (PDF, Word, gescannte Dokumente) mit strukturierter Positiv-/Negativbewertung und automatischer Benachrichtigung bei geeigneten Kandidaten.",
     gradient: "from-gray-800 via-zinc-900 to-black",
-    accent: "CRM",
-  },
-  {
-    title: "Modern Company Website",
-    category: "Web",
-    description:
-      "Premium Unternehmenswebsite mit Animationen und Top-Performance.",
-    gradient: "from-slate-800 via-zinc-900 to-black",
-    accent: "WEB",
+    accent: "RECRUIT",
   },
 ] as const;
 
@@ -99,6 +92,15 @@ export const techStack = [
   "Supabase",
   "PostgreSQL",
   "n8n",
+  "Make",
+  "Zapier",
+  "LangChain",
+  "Power Automate",
+  "Microsoft Graph API",
+  "HubSpot",
+  "Azure (AZ-900)",
+  "MongoDB",
+  "Nginx",
 ] as const;
 
 export const whyUs = [

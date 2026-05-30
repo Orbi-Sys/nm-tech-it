@@ -104,6 +104,32 @@ export function Contact() {
             Nachricht senden
           </motion.button>
         </motion.form>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          <a
+            href="mailto:aleschkinn@gmail.com"
+            className="rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-5 text-sm text-silver-bright transition-colors hover:border-white/25 hover:bg-white/10"
+          >
+            <span className="block text-silver-dim text-xs uppercase tracking-[0.3em] mb-2">E-Mail</span>
+            aleschkinn@gmail.com
+          </a>
+          <a
+            href="tel:+4915234801274"
+            className="rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-5 text-sm text-silver-bright transition-colors hover:border-white/25 hover:bg-white/10"
+          >
+            <span className="block text-silver-dim text-xs uppercase tracking-[0.3em] mb-2">Telefon</span>
+            +49 1523 4801274
+          </a>
+          <a
+            href="https://linkedin.com/in/nikita-aleschkin-it"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-5 text-sm text-silver-bright transition-colors hover:border-white/25 hover:bg-white/10"
+          >
+            <span className="block text-silver-dim text-xs uppercase tracking-[0.3em] mb-2">LinkedIn</span>
+            linkedin.com/in/nikita-aleschkin-it
+          </a>
+        </div>
       </div>
     </section>
   );

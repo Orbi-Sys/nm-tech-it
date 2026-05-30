@@ -1,7 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import { navLinks } from "@/lib/data";
 import { CircuitAccent } from "@/components/ui/CircuitAccent";
+
+const footerLinks = [
+  { label: "Über mich", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Projekte", href: "#projects" },
+  { label: "Tech Stack", href: "#tech" },
+  { label: "Prozess", href: "#process" },
+  { label: "Kontakt", href: "#contact" },
+  { label: "Impressum", href: "/impressum" },
+  { label: "Datenschutz", href: "/datenschutz" },
+] as const;
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -11,8 +21,10 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="flex flex-col items-center md:items-start gap-4">
-            <Link href="#" className="flex items-center gap-3">
-              <Image src="/logo.png" alt="NM-TECH IT" width={48} height={48} />
+            <Link href="/" className="flex items-center gap-4">
+              <div className="relative w-[80px] h-[80px] shrink-0">
+                <Image src="/logo.png" alt="NM-TECH IT" width={80} height={80} />
+              </div>
               <div>
                 <span className="font-display text-lg font-bold tracking-wider metallic-text block">
                   NM-TECH IT
@@ -26,7 +38,7 @@ export function Footer() {
           </div>
 
           <nav className="flex flex-wrap justify-center gap-6 md:gap-8">
-            {navLinks.map((link) => (
+            {footerLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -51,7 +63,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/5 text-center text-sm text-silver-dim">
-          © {year} NM-TECH IT. Alle Rechte vorbehalten.
+          © {year} NM-TECH IT – Nikita Aleschkin. Alle Rechte vorbehalten.
         </div>
       </div>
     </footer>

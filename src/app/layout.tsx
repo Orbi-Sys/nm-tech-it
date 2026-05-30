@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NM-TECH IT | Webentwicklung, KI & Automationen",
+  title: "NM-TECH IT – Freelance Developer & KI-Spezialist",
   description:
-    "Premium digitale Lösungen: moderne Webseiten, KI-Systeme, Automationen, API-Integrationen und individuelle Software für Unternehmen.",
+    "Nikita Aleschkin – Freelance Developer & KI-Spezialist aus Lastrup. Moderne Webseiten, KI-Integrationen und intelligente Automationen für Unternehmen.",
   keywords: [
+    "Freelance Developer",
+    "KI-Spezialist",
     "Webentwicklung",
-    "KI",
     "Automation",
     "Next.js",
     "Freelancer",
-    "Software",
     "NM-TECH IT",
   ],
   openGraph: {
-    title: "NM-TECH IT | Webentwicklung, KI & Automationen",
+    title: "NM-TECH IT – Freelance Developer & KI-Spezialist",
     description:
-      "Hochwertige digitale Lösungen – modern, performant und zukunftssicher.",
+      "Nikita Aleschkin – Freelance Developer & KI-Spezialist aus Lastrup. Moderne Webseiten, KI-Integrationen und intelligente Automationen für Unternehmen.",
     type: "website",
     locale: "de_DE",
   },

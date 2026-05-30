@@ -24,15 +24,15 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.85, filter: "blur(12px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 2.2 }}
-          className="mb-10 flex justify-center"
+          className="mb-1 flex justify-center"
         >
-          <div className="relative">
+          <div className="relative w-[320px] h-[320px]">
             <div className="absolute -inset-8 bg-white/5 rounded-full blur-3xl animate-pulse-glow" />
             <Image
               src="/logo.png"
               alt="NM-TECH IT"
-              width={140}
-              height={140}
+              width={320}
+              height={320}
               priority
               className="relative drop-shadow-[0_0_60px_rgba(255,255,255,0.12)]"
             />
@@ -43,13 +43,18 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.5, duration: 0.6 }}
-          className="flex items-center justify-center gap-4 mb-6"
+          className="flex flex-col items-center justify-center gap-2 mb-4"
         >
-          <CircuitAccent className="w-10 h-5 opacity-40" />
-          <span className="text-[10px] md:text-xs tracking-[0.35em] uppercase text-silver-dim">
-            Lösungen. Technologie. Zukunft.
+          <div className="flex items-center gap-4">
+            <CircuitAccent className="w-10 h-5 opacity-40" />
+            <span className="text-[10px] md:text-xs tracking-[0.35em] uppercase text-silver-dim">
+              Lösungen. Technologie. Zukunft.
+            </span>
+            <CircuitAccent className="w-10 h-5 opacity-40 rotate-180" />
+          </div>
+          <span className="text-sm md:text-base text-silver-bright uppercase tracking-[0.3em]">
+            Freelance Developer & KI-Spezialist
           </span>
-          <CircuitAccent className="w-10 h-5 opacity-40 rotate-180" />
         </motion.div>
 
         <motion.h1
