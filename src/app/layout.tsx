@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "Freelancer",
     "NM-TECH IT",
   ],
+  icons: {
+    icon: "/logo.ico",
+  },
   openGraph: {
     title: "NM-TECH IT – Freelance Developer & KI-Spezialist",
     description:
