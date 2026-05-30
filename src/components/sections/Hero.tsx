@@ -34,6 +34,7 @@ export function Hero() {
               width={320}
               height={320}
               priority
+              loading="eager"
               className="relative drop-shadow-[0_0_60px_rgba(255,255,255,0.12)]"
             />
           </div>
