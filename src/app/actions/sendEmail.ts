@@ -34,18 +34,37 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
   }
 
   try {
+    const portNum = parseInt(smtpPort, 10);
+    const secure = portNum === 465; // Implicit TLS for 465
+    const requireTLS = portNum === 587; // STARTTLS for 587
+
     const transporter = nodemailer.createTransport({
       host: smtpHost,
-      port: parseInt(smtpPort, 10),
-      secure: smtpPort === "465", // true for 465, false for 587
+      port: portNum,
+      secure,
+      requireTLS,
       auth: {
         user: smtpUser,
         pass: smtpPass,
       },
       tls: {
-        rejectUnauthorized: false,
+        // Keep verification on for production; if you have CA issues,
+        // set to false temporarily for debugging only.
+        rejectUnauthorized: true,
       },
     });
+
+    // Verify connection configuration before attempting to send
+    try {
+      await transporter.verify();
+    } catch (verifyError) {
+      const vErr = verifyError as Error & { response?: string };
+      console.error('SMTP verify failed:', { message: vErr.message, response: vErr.response });
+      return {
+        success: false,
+        message: `SMTP-Verbindungsprüfung fehlgeschlagen: ${vErr.message}`,
+      };
+    }
 
     const mailOptions = {
       from: `"${name}" <${smtpUser}>`,
@@ -71,11 +90,16 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
       success: true,
       message: "Ihre Nachricht wurde erfolgreich gesendet. Ich melde mich zeitnah bei Ihnen!",
     };
-  } catch (error) {
-    console.error("Error sending email via Nodemailer:", error);
+    } catch (error: unknown) {
+    const err = error as Error & { code?: string; response?: string };
+    console.error("SMTP Error:", {
+      message: err.message,
+      code: err.code,
+      response: err.response,
+    });
     return {
       success: false,
-      message: "Beim Senden der E-Mail ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.",
+      message: `Fehler: ${err.message}`,  // temporär zum Debuggen
     };
   }
 }
