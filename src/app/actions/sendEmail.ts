@@ -18,12 +18,10 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
     };
   }
 
-  const smtpHost = process.env.SMTP_HOST || "smtp.mailbox.org";
-  const smtpPort = parseInt(process.env.SMTP_PORT || "465", 10);
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
-  const smtpTo = process.env.SMTP_TO || "kontakt@nm-tech-it.de";
-  const smtpFrom = process.env.SMTP_FROM || "kontakt@nm-tech-it.de";
+  const smtpTo = process.env.SMTP_TO || "info@nm-tech-it.de";
+  const smtpFrom = process.env.SMTP_FROM || "Kontakt@nm-tech-it.de";
 
   if (!smtpUser || !smtpPass) {
     return {
@@ -34,9 +32,9 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
 
   try {
     const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: smtpPort === 465,
+      host: "smtp.mailbox.org",
+      port: 465,
+      secure: true,
       auth: {
         user: smtpUser,
         pass: smtpPass,
@@ -46,6 +44,7 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
       },
     });
 
+    // Benachrichtigung an dich
     await transporter.sendMail({
       from: `"NM-TECH IT Kontaktformular" <${smtpFrom}>`,
       replyTo: email,
@@ -60,6 +59,26 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
           <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 5px; border-left: 4px solid #cccccc;">
             <p style="margin: 0; white-space: pre-wrap;">${message}</p>
           </div>
+        </div>
+      `,
+    });
+
+    // Bestätigungsmail an den Absender
+    await transporter.sendMail({
+      from: `"NM-TECH IT" <${smtpFrom}>`,
+      to: email,
+      subject: `Ihre Anfrage bei NM-TECH IT – Bestätigung`,
+      text: `Hallo ${name},\n\nvielen Dank für Ihre Nachricht! Ich habe Ihre Anfrage erhalten und melde mich zeitnah bei Ihnen.\n\nIhre Nachricht:\n${message}\n\nMit freundlichen Grüßen\nNikita Aleschkin\nNM-TECH IT`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
+          <h2 style="color: #333; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;">Vielen Dank für Ihre Anfrage!</h2>
+          <p>Hallo ${name},</p>
+          <p>ich habe Ihre Nachricht erhalten und melde mich zeitnah bei Ihnen.</p>
+          <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 5px; border-left: 4px solid #cccccc;">
+            <p style="margin: 0 0 8px 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Ihre Nachricht</p>
+            <p style="margin: 0; white-space: pre-wrap;">${message}</p>
+          </div>
+          <p style="margin-top: 20px;">Mit freundlichen Grüßen<br><strong>Nikita Aleschkin</strong><br>NM-TECH IT</p>
         </div>
       `,
     });
