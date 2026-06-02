@@ -15,13 +15,15 @@ export function Contact() {
     setStatus("loading");
     setStatusMessage("");
 
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
     try {
       const result = await sendEmail(formData);
       if (result.success) {
         setStatus("success");
         setStatusMessage(result.message);
-        e.currentTarget.reset();
+        form.reset();
       } else {
         setStatus("error");
         setStatusMessage(result.message);
