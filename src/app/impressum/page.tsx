@@ -21,7 +21,7 @@ export default function ImpressumPage() {
                 <p>Heinrich-Böll-Str. 12</p>
                 <p>49757 Lastrup, Niedersachsen</p>
                 <p>Tel: <a href="tel:+4915234801274" className="text-silver-bright hover:text-white transition-colors">+49 1523 4801274</a></p>
-                <p>E-Mail: <a href="mailto:aleschkinn@gmail.com" className="text-silver-bright hover:text-white transition-colors">aleschkinn@gmail.com</a></p>
+                <p>E-Mail: <a href="mailto:kontakt@nm-tech-it.de" className="text-silver-bright hover:text-white transition-colors">kontakt@nm-tech-it.de</a></p>
                 <p>Steuernummer: wird nach Zuteilung durch das Finanzamt ergänzt</p>
               </div>
             </div>

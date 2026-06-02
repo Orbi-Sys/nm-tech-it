@@ -8,6 +8,7 @@ import { Services } from "@/components/sections/Services";
 import { Projects } from "@/components/sections/Projects";
 import { TechStack } from "@/components/sections/TechStack";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { FAQ } from "@/components/sections/FAQ";
 import { Process } from "@/components/sections/Process";
 import { Contact } from "@/components/sections/Contact";
 // This is the main page of the website, which composes all the sections together.
@@ -23,6 +24,7 @@ export default function Home() {
         <Projects />
         <TechStack />
         <WhyUs />
+        <FAQ />
         <Process />
         <Contact />
       </main>

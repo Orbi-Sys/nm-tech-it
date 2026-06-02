@@ -19,7 +19,7 @@ export function Hero() {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-white/[0.03] rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-bg-deep to-transparent pointer-events-none" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-24 lg:px-8 text-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-36 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.85, filter: "blur(12px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -81,7 +81,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 3 }}
-          className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button href="#contact" variant="primary">
             Projekt starten
@@ -90,21 +90,21 @@ export function Hero() {
             Kontakt aufnehmen
           </Button>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 3.4, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
-        >
-          <span className="text-[10px] tracking-widest uppercase text-silver-dim">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent"
-          />
-        </motion.div>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 3.4, duration: 1 }}
+        className="absolute bottom-14 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+      >
+        <span className="text-[10px] tracking-widest uppercase text-silver-dim">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent"
+        />
+      </motion.div>
     </section>
   );
 }

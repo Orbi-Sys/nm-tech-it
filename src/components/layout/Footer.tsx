@@ -50,15 +50,15 @@ export function Footer() {
           </nav>
 
           <div className="flex gap-4">
-            {["LinkedIn", "GitHub", "X"].map((social) => (
-              <span
-                key={social}
-                className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-xs text-silver-dim hover:border-white/25 hover:text-silver-bright transition-all cursor-default"
-                title={social}
-              >
-                {social[0]}
-              </span>
-            ))}
+            <a
+              href="https://linkedin.com/in/nikita-aleschkin-it"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-xs text-silver-dim hover:border-white/25 hover:text-silver-bright transition-all"
+              title="LinkedIn"
+            >
+              L
+            </a>
           </div>
         </div>
 

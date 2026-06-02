@@ -3,12 +3,36 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { sendEmail } from "@/app/actions/sendEmail";
 
 export function Contact() {
   const [focused, setFocused] = useState<string | null>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setStatus("loading");
+    setStatusMessage("");
+
+    const formData = new FormData(e.currentTarget);
+    try {
+      const result = await sendEmail(formData);
+      if (result.success) {
+        setStatus("success");
+        setStatusMessage(result.message);
+        e.currentTarget.reset();
+      } else {
+        setStatus("error");
+        setStatusMessage(result.message);
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+      setStatusMessage(
+        "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal."
+      );
+    }
   };
 
   const inputClass =
@@ -95,23 +119,44 @@ export function Contact() {
             />
           </div>
 
+          {status !== "idle" && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className={`p-4 rounded-xl text-sm ${
+                status === "success"
+                  ? "border border-green-500/20 bg-green-500/10 text-green-400"
+                  : status === "error"
+                  ? "border border-red-500/20 bg-red-500/10 text-red-400"
+                  : "border border-white/10 bg-white/5 text-silver"
+              }`}
+            >
+              {statusMessage || (status === "loading" && "Nachricht wird gesendet...")}
+            </motion.div>
+          )}
+
           <motion.button
             type="submit"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full py-4 rounded-xl bg-white/10 border border-white/20 text-silver-bright font-medium tracking-widest uppercase text-sm hover:bg-white/15 hover:border-white/35 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] transition-all duration-300"
+            disabled={status === "loading"}
+            whileHover={status !== "loading" ? { scale: 1.02 } : {}}
+            whileTap={status !== "loading" ? { scale: 0.98 } : {}}
+            className={`w-full py-4 rounded-xl font-medium tracking-widest uppercase text-sm transition-all duration-300 ${
+              status === "loading"
+                ? "bg-white/5 border border-white/10 text-silver-dim cursor-not-allowed"
+                : "bg-white/10 border border-white/20 text-silver-bright hover:bg-white/15 hover:border-white/35 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] cursor-pointer"
+            }`}
           >
-            Nachricht senden
+            {status === "loading" ? "Wird gesendet..." : "Nachricht senden"}
           </motion.button>
         </motion.form>
 
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           <a
-            href="mailto:aleschkinn@gmail.com"
+            href="mailto:kontakt@nm-tech-it.de"
             className="rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-5 text-sm text-silver-bright transition-colors hover:border-white/25 hover:bg-white/10"
           >
             <span className="block text-silver-dim text-xs uppercase tracking-[0.3em] mb-2">E-Mail</span>
-            aleschkinn@gmail.com
+            kontakt@nm-tech-it.de
           </a>
           <a
             href="tel:+4915234801274"

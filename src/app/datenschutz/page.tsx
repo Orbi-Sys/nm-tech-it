@@ -25,7 +25,7 @@ export default function DatenschutzPage() {
                 <br />
                 49757 Lastrup, Niedersachsen
                 <br />
-                E-Mail: <a href="mailto:aleschkinn@gmail.com" className="text-silver-bright hover:text-white">aleschkinn@gmail.com</a>
+                E-Mail: <a href="mailto:kontakt@nm-tech-it.de" className="text-silver-bright hover:text-white">kontakt@nm-tech-it.de</a>
               </p>
               <p>
                 Diese Website verarbeitet personenbezogene Daten, wenn Sie das Kontaktformular nutzen oder mit mir in Verbindung treten. Dabei werden nur die notwendigen Daten erhoben, um Ihre Anfrage beantworten zu können.
