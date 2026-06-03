@@ -61,7 +61,7 @@ export const projects = [
     category: "Automation",
     description:
       "Workflow zur automatischen Verarbeitung von 600–800 CSV-Datensätzen aus Google Drive mit JavaScript-Filterlogik und Übertragung in Microsoft Excel. Zeitersparnis: ca. 4 Stunden pro Durchlauf.",
-    gradient: "from-neutral-800 via-zinc-900 to-black",
+    gradient: "from-zinc-800 via-zinc-900 to-black",
     accent: "AUTOMATION",
   },
   {
@@ -69,7 +69,7 @@ export const projects = [
     category: "KI / Automation",
     description:
       "KI-gestützter Workflow zur automatischen Erstellung mehrseitiger Dokumente aus HTML-Daten. Zeitersparnis: ca. 1 Stunde pro Vorgang.",
-    gradient: "from-stone-800 via-zinc-900 to-black",
+    gradient: "from-zinc-800 via-zinc-900 to-black",
     accent: "KI",
   },
   {
@@ -77,7 +77,7 @@ export const projects = [
     category: "KI",
     description:
       "Automatisierte Analyse von Bewerberunterlagen (PDF, Word, gescannte Dokumente) mit strukturierter Positiv-/Negativbewertung und automatischer Benachrichtigung bei geeigneten Kandidaten.",
-    gradient: "from-gray-800 via-zinc-900 to-black",
+    gradient: "from-zinc-800 via-zinc-900 to-black",
     accent: "RECRUIT",
   },
 ] as const;
