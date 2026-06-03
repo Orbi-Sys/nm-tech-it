@@ -46,13 +46,6 @@ export function Hero() {
           transition={{ delay: 2.5, duration: 0.6 }}
           className="flex flex-col items-center justify-center gap-2 mb-4"
         >
-          <div className="flex items-center gap-4">
-            <CircuitAccent className="w-10 h-5 opacity-40" />
-            <span className="text-[10px] md:text-xs tracking-[0.35em] uppercase text-gold-dim">
-              Lösungen. Technologie. Zukunft.
-            </span>
-            <CircuitAccent className="w-10 h-5 opacity-40 rotate-180" />
-          </div>
           <span className="text-sm md:text-base text-gold-bright uppercase tracking-[0.3em]">
             Freelance Developer & KI-Spezialist
           </span>
