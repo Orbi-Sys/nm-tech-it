@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "NM-TECH IT – Freelance Developer & KI-Spezialist",
@@ -47,6 +49,8 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-bg-deep text-silver antialiased">
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
