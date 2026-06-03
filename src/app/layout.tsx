@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { BackToTop } from "@/components/ui/BackToTop";
 
 export const metadata: Metadata = {
   title: "NM-TECH IT – Software Engineer & Digitalisierungspartner",
@@ -13,7 +14,6 @@ export const metadata: Metadata = {
     "Webentwicklung",
     "Automation",
     "Next.js",
-    "Freelancer",
     "NM-TECH IT",
   ],
   icons: {
@@ -49,6 +49,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-bg-deep text-silver antialiased">
         {children}
+        <BackToTop />
         <Analytics />
         <SpeedInsights />
       </body>

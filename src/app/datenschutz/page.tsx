@@ -12,7 +12,7 @@ export default function DatenschutzPage() {
             <SectionHeading
               label="Datenschutz"
               title="Datenschutzerklärung"
-              description="Informationen zur Verarbeitung personenbezogener Daten auf dieser Freelancer-Website mit Kontaktformular."
+              description="Informationen zur Verarbeitung personenbezogener Daten auf dieser Website mit Kontaktformular."
             />
 
             <div className="glass rounded-3xl border border-white/10 bg-white/[0.03] p-10 shadow-[0_0_40px_rgba(255,255,255,0.05)] space-y-6 text-silver-dim leading-relaxed text-base md:text-lg">
