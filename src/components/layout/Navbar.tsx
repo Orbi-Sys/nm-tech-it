@@ -44,7 +44,7 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm text-silver-dim hover:text-silver-bright transition-colors duration-300 tracking-wide"
+                className="text-sm text-silver-dim hover:text-gold-bright transition-colors duration-300 tracking-wide"
               >
                 {link.label}
               </Link>
@@ -54,7 +54,7 @@ export function Navbar() {
 
         <Link
           href="#contact"
-          className="hidden md:inline-flex text-xs font-medium tracking-widest uppercase px-5 py-2.5 rounded-lg border border-white/15 text-silver-bright hover:bg-white/10 hover:border-white/30 transition-all duration-300"
+          className="hidden md:inline-flex text-xs font-medium tracking-widest uppercase px-5 py-2.5 rounded-lg border border-gold/25 text-gold-bright hover:bg-gold/15 hover:border-gold/50 transition-all duration-300"
         >
           Projekt starten
         </Link>
@@ -83,7 +83,7 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-silver hover:text-white transition-colors"
+                  className="text-silver hover:text-gold-bright transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -93,7 +93,7 @@ export function Navbar() {
               <Link
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="inline-block mt-2 text-sm uppercase tracking-widest text-silver-bright"
+                className="inline-block mt-2 text-sm uppercase tracking-widest text-gold-bright"
               >
                 Projekt starten
               </Link>

@@ -27,7 +27,7 @@ export function Hero() {
           className="mb-1 flex justify-center"
         >
           <div className="relative w-[320px] h-[320px]">
-            <div className="absolute -inset-8 bg-white/5 rounded-full blur-3xl animate-pulse-glow" />
+            <div className="absolute -inset-8 bg-gold/10 rounded-full blur-3xl animate-pulse-glow" />
             <Image
               src="/logo.png"
               alt="NM-TECH IT"
@@ -35,7 +35,7 @@ export function Hero() {
               height={320}
               priority
               loading="eager"
-              className="relative drop-shadow-[0_0_60px_rgba(255,255,255,0.12)]"
+              className="relative drop-shadow-[0_0_60px_rgba(212,166,111,0.2)]"
             />
           </div>
         </motion.div>
@@ -48,12 +48,12 @@ export function Hero() {
         >
           <div className="flex items-center gap-4">
             <CircuitAccent className="w-10 h-5 opacity-40" />
-            <span className="text-[10px] md:text-xs tracking-[0.35em] uppercase text-silver-dim">
+            <span className="text-[10px] md:text-xs tracking-[0.35em] uppercase text-gold-dim">
               Lösungen. Technologie. Zukunft.
             </span>
             <CircuitAccent className="w-10 h-5 opacity-40 rotate-180" />
           </div>
-          <span className="text-sm md:text-base text-silver-bright uppercase tracking-[0.3em]">
+          <span className="text-sm md:text-base text-gold-bright uppercase tracking-[0.3em]">
             Freelance Developer & KI-Spezialist
           </span>
         </motion.div>

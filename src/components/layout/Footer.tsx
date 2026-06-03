@@ -17,7 +17,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-white/5 bg-bg-elevated">
+    <footer className="relative border-t border-gold/15 bg-bg-elevated">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="flex flex-col items-center md:items-start gap-4">
@@ -29,7 +29,7 @@ export function Footer() {
                 <span className="font-display text-lg font-bold tracking-wider metallic-text block">
                   NM-TECH IT
                 </span>
-                <span className="text-[10px] tracking-[0.25em] text-silver-dim uppercase">
+                <span className="text-[10px] tracking-[0.25em] text-gold-dim uppercase">
                   Lösungen. Technologie. Zukunft.
                 </span>
               </div>
@@ -42,7 +42,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-silver-dim hover:text-silver-bright transition-colors"
+                className="text-sm text-silver-dim hover:text-gold-bright transition-colors"
               >
                 {link.label}
               </Link>
@@ -54,7 +54,7 @@ export function Footer() {
               href="https://linkedin.com/in/nikita-aleschkin-it"
               target="_blank"
               rel="noreferrer noopener"
-              className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-xs text-silver-dim hover:border-white/25 hover:text-silver-bright transition-all"
+              className="w-10 h-10 rounded-lg border border-gold/20 flex items-center justify-center text-xs text-silver-dim hover:border-gold/40 hover:text-gold-bright transition-all"
               title="LinkedIn"
             >
               L
@@ -62,7 +62,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/5 text-center text-sm text-silver-dim">
+        <div className="mt-12 pt-8 border-t border-gold/10 text-center text-sm text-silver-dim">
           © {year} NM-TECH IT – Nikita Aleschkin. Alle Rechte vorbehalten.
         </div>
       </div>

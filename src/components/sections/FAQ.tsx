@@ -38,13 +38,13 @@ export function FAQ() {
                   {isActive && (
                     <motion.div
                       layoutId="activeCategoryTabMobile"
-                      className="absolute inset-0 border border-white/10 bg-white/[0.05] rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.02)]"
+                      className="absolute inset-0 border border-gold/20 bg-gold/[0.05] rounded-xl shadow-[0_0_20px_rgba(212,166,111,0.05)]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
                   <span
                     className={`relative z-10 text-xs font-semibold uppercase tracking-wider transition-colors duration-300 ${
-                      isActive ? "text-white" : "text-silver-dim hover:text-silver"
+                      isActive ? "text-gold-bright" : "text-silver-dim hover:text-gold-dim"
                     }`}
                   >
                     {category.category}
@@ -55,7 +55,7 @@ export function FAQ() {
           </div>
 
           {/* Desktop Category Tabs Sidebar (Left) */}
-          <div className="hidden lg:flex lg:col-span-4 flex-col gap-3 p-2 rounded-3xl border border-white/5 bg-white/[0.01]">
+          <div className="hidden lg:flex lg:col-span-4 flex-col gap-3 p-2 rounded-3xl border border-gold/10 bg-gold/[0.01]">
             {faqCategories.map((category, idx) => {
               const isActive = activeCategory === idx;
               return (
@@ -67,7 +67,7 @@ export function FAQ() {
                   {isActive && (
                     <motion.div
                       layoutId="activeCategoryTab"
-                      className="absolute inset-0 border border-white/15 bg-white/[0.05] rounded-2xl shadow-[0_0_25px_rgba(255,255,255,0.02)]"
+                      className="absolute inset-0 border border-gold/25 bg-gold/[0.05] rounded-2xl shadow-[0_0_25px_rgba(212,166,111,0.05)]"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -75,14 +75,14 @@ export function FAQ() {
                   {isActive && (
                     <motion.div
                       layoutId="activeCategoryIndicator"
-                      className="absolute left-0 top-3.5 bottom-3.5 w-1 bg-white rounded-full"
+                      className="absolute left-0 top-3.5 bottom-3.5 w-1 bg-gold rounded-full"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
 
                   <span
                     className={`relative z-10 font-display text-sm md:text-base font-semibold tracking-wide transition-colors duration-300 ${
-                      isActive ? "text-white" : "text-silver-dim group-hover:text-silver"
+                      isActive ? "text-gold-bright" : "text-silver-dim group-hover:text-gold-dim"
                     }`}
                   >
                     {category.category}
@@ -91,8 +91,8 @@ export function FAQ() {
                   <span
                     className={`relative z-10 transition-all duration-300 ${
                       isActive
-                        ? "text-white translate-x-1"
-                        : "text-silver-dim/40 group-hover:text-silver translate-x-0"
+                        ? "text-gold translate-x-1"
+                        : "text-silver-dim/40 group-hover:text-gold-dim translate-x-0"
                     }`}
                   >
                     <svg

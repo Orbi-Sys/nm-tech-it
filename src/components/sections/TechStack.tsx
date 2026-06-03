@@ -26,11 +26,11 @@ export function TechStack() {
               style={{ animationDelay: `${i * 0.3}s`, animationDuration: `${5 + (i % 4)}s` }}
               whileHover={{
                 scale: 1.05,
-                boxShadow: "0 0 30px rgba(255, 255, 255, 0.08)",
+                boxShadow: "0 0 30px rgba(212, 166, 111, 0.15)",
               }}
-              className="px-6 py-4 md:px-8 md:py-5 rounded-xl glass border border-white/10 hover:border-white/25 transition-colors cursor-default animate-float"
+              className="px-6 py-4 md:px-8 md:py-5 rounded-xl glass border border-gold/20 hover:border-gold/40 transition-colors cursor-default animate-float"
             >
-              <span className="font-display text-sm md:text-base font-semibold tracking-wide text-silver-bright">
+              <span className="font-display text-sm md:text-base font-semibold tracking-wide text-gold-bright">
                 {tech}
               </span>
             </motion.div>

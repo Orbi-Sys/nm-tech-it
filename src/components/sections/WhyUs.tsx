@@ -25,12 +25,12 @@ export function WhyUs() {
             <div key={item.title} data-reveal>
               <motion.div
                 whileHover={{ y: -4 }}
-                className="group p-8 rounded-2xl border border-white/5 bg-bg-card/50 hover:border-white/15 hover:bg-bg-card transition-all duration-400"
+                className="group p-8 rounded-2xl border border-gold/10 bg-bg-card/50 hover:border-gold/25 hover:bg-bg-card transition-all duration-400"
               >
-                <span className="inline-block mb-4 font-mono text-xs text-white/20 group-hover:text-white/40 transition-colors">
+                <span className="inline-block mb-4 font-mono text-xs text-gold/30 group-hover:text-gold/50 transition-colors">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-display text-lg font-semibold text-silver-bright mb-2">
+                <h3 className="font-display text-lg font-semibold text-gold-bright mb-2">
                   {item.title}
                 </h3>
                 <p className="text-sm text-silver-dim leading-relaxed">

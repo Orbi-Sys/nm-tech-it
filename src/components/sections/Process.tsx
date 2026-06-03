@@ -65,7 +65,7 @@ export function Process() {
         <div className="relative">
           <div
             ref={lineRef}
-            className="absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-white/5 via-white/30 to-white/5 origin-top"
+            className="absolute left-6 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-gold/10 via-gold/40 to-gold/10 origin-top"
           />
 
           <div className="space-y-16 md:space-y-24">
@@ -90,7 +90,7 @@ export function Process() {
                   </div>
                 </div>
 
-                <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full border-2 border-white/30 bg-bg-deep z-10" />
+                <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full border-2 border-gold/50 bg-bg-deep z-10" />
 
                 <div className="md:w-1/2 pl-16 md:pl-12">
                   <p className="text-silver-dim leading-relaxed">{step.description}</p>

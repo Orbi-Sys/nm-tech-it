@@ -38,12 +38,12 @@ export function Contact() {
   };
 
   const inputClass =
-    "w-full px-5 py-4 rounded-xl bg-white/[0.03] border text-silver-bright placeholder:text-silver-dim/50 outline-none transition-all duration-300";
+    "w-full px-5 py-4 rounded-xl bg-gold/[0.02] border text-silver-bright placeholder:text-silver-dim/50 outline-none transition-all duration-300";
 
   return (
     <section id="contact" className="relative py-28 md:py-36 snap-section">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-white/[0.02] rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gold/[0.03] rounded-full blur-[100px]" />
       </div>
 
       <div className="relative mx-auto max-w-3xl px-6 lg:px-8">
@@ -74,8 +74,8 @@ export function Contact() {
               onBlur={() => setFocused(null)}
               className={`${inputClass} ${
                 focused === "name"
-                  ? "border-white/30 shadow-[0_0_20px_rgba(255,255,255,0.06)]"
-                  : "border-white/10"
+                  ? "border-gold/40 shadow-[0_0_20px_rgba(212,166,111,0.12)]"
+                  : "border-gold/20"
               }`}
               placeholder="Ihr Name"
             />
@@ -94,8 +94,8 @@ export function Contact() {
               onBlur={() => setFocused(null)}
               className={`${inputClass} ${
                 focused === "email"
-                  ? "border-white/30 shadow-[0_0_20px_rgba(255,255,255,0.06)]"
-                  : "border-white/10"
+                  ? "border-gold/40 shadow-[0_0_20px_rgba(212,166,111,0.12)]"
+                  : "border-gold/20"
               }`}
               placeholder="ihre@email.de"
             />
@@ -114,8 +114,8 @@ export function Contact() {
               onBlur={() => setFocused(null)}
               className={`${inputClass} resize-none ${
                 focused === "message"
-                  ? "border-white/30 shadow-[0_0_20px_rgba(255,255,255,0.06)]"
-                  : "border-white/10"
+                  ? "border-gold/40 shadow-[0_0_20px_rgba(212,166,111,0.12)]"
+                  : "border-gold/20"
               }`}
               placeholder="Beschreiben Sie Ihr Projekt..."
             />
@@ -144,8 +144,8 @@ export function Contact() {
             whileTap={status !== "loading" ? { scale: 0.98 } : {}}
             className={`w-full py-4 rounded-xl font-medium tracking-widest uppercase text-sm transition-all duration-300 ${
               status === "loading"
-                ? "bg-white/5 border border-white/10 text-silver-dim cursor-not-allowed"
-                : "bg-white/10 border border-white/20 text-silver-bright hover:bg-white/15 hover:border-white/35 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] cursor-pointer"
+                ? "bg-gold/10 border border-gold/20 text-gold-dim cursor-not-allowed"
+                : "bg-gold/20 border border-gold/40 text-gold-bright hover:bg-gold/30 hover:border-gold/60 hover:shadow-[0_0_30px_rgba(212,166,111,0.15)] cursor-pointer"
             }`}
           >
             {status === "loading" ? "Wird gesendet..." : "Nachricht senden"}
@@ -155,25 +155,25 @@ export function Contact() {
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           <a
             href="mailto:kontakt@nm-tech-it.de"
-            className="rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-5 text-sm text-silver-bright transition-colors hover:border-white/25 hover:bg-white/10"
+            className="rounded-3xl border border-gold/20 bg-gold/[0.03] px-6 py-5 text-sm text-gold-bright transition-colors hover:border-gold/40 hover:bg-gold/10"
           >
-            <span className="block text-silver-dim text-xs uppercase tracking-[0.3em] mb-2">E-Mail</span>
+            <span className="block text-gold-dim text-xs uppercase tracking-[0.3em] mb-2">E-Mail</span>
             kontakt@nm-tech-it.de
           </a>
           <a
             href="tel:+4915234801274"
-            className="rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-5 text-sm text-silver-bright transition-colors hover:border-white/25 hover:bg-white/10"
+            className="rounded-3xl border border-gold/20 bg-gold/[0.03] px-6 py-5 text-sm text-gold-bright transition-colors hover:border-gold/40 hover:bg-gold/10"
           >
-            <span className="block text-silver-dim text-xs uppercase tracking-[0.3em] mb-2">Telefon</span>
+            <span className="block text-gold-dim text-xs uppercase tracking-[0.3em] mb-2">Telefon</span>
             +49 1523 4801274
           </a>
           <a
             href="https://linkedin.com/in/nikita-aleschkin-it"
             target="_blank"
             rel="noreferrer noopener"
-            className="rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-5 text-sm text-silver-bright transition-colors hover:border-white/25 hover:bg-white/10"
+            className="rounded-3xl border border-gold/20 bg-gold/[0.03] px-6 py-5 text-sm text-gold-bright transition-colors hover:border-gold/40 hover:bg-gold/10"
           >
-            <span className="block text-silver-dim text-xs uppercase tracking-[0.3em] mb-2">LinkedIn</span>
+            <span className="block text-gold-dim text-xs uppercase tracking-[0.3em] mb-2">LinkedIn</span>
             linkedin.com/in/nikita-aleschkin-it
           </a>
         </div>

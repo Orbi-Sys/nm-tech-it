@@ -28,20 +28,20 @@ export function Services() {
             <div key={service.title} data-reveal>
               <TiltCard>
                 <motion.article
-                  whileHover={{ boxShadow: "0 0 40px rgba(255,255,255,0.06)" }}
-                  className="group relative h-full p-8 rounded-2xl glass glow-ring overflow-hidden transition-all duration-500 hover:border-white/20"
+                  whileHover={{ boxShadow: "0 0 40px rgba(212,166,111,0.12)" }}
+                  className="group relative h-full p-8 rounded-2xl glass glow-ring overflow-hidden transition-all duration-500 hover:border-gold/25"
                 >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/[0.02] rounded-full blur-2xl group-hover:bg-white/[0.05] transition-all duration-500" />
-                  <div className="mb-6 p-3 w-fit rounded-xl bg-white/5 border border-white/10 group-hover:border-white/20 transition-colors">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gold/[0.05] rounded-full blur-2xl group-hover:bg-gold/[0.1] transition-all duration-500" />
+                  <div className="mb-6 p-3 w-fit rounded-xl bg-gold/5 border border-gold/15 group-hover:border-gold/30 transition-colors">
                     <ServiceIcon name={service.icon} />
                   </div>
-                  <h3 className="font-display text-xl font-semibold text-silver-bright mb-3">
+                  <h3 className="font-display text-xl font-semibold text-gold-bright mb-3">
                     {service.title}
                   </h3>
                   <p className="text-silver-dim text-sm leading-relaxed">
                     {service.description}
                   </p>
-                  <span className="absolute bottom-6 right-6 text-[10px] text-white/10 font-mono">
+                  <span className="absolute bottom-6 right-6 text-[10px] text-gold/20 font-mono">
                     0{i + 1}
                   </span>
                 </motion.article>

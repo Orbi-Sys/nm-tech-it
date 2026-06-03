@@ -22,7 +22,7 @@ export function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6 }}
-        className="inline-block text-xs font-medium tracking-[0.3em] uppercase text-silver-dim mb-4"
+        className="inline-block text-xs font-medium tracking-[0.3em] uppercase text-gold-dim mb-4"
       >
         {label}
       </motion.span>
@@ -51,7 +51,7 @@ export function SectionHeading({
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="mt-8 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-white/30 to-transparent origin-center"
+        className="mt-8 h-px w-24 mx-auto bg-gradient-to-r from-transparent via-gold/40 to-transparent origin-center"
       />
     </div>
   );

@@ -26,7 +26,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="glass border border-white/10 rounded-3xl p-10 bg-white/[0.03] shadow-[0_0_30px_rgba(255,255,255,0.04)]"
+            className="glass border border-gold/20 rounded-3xl p-10 bg-gold/[0.02] shadow-[0_0_30px_rgba(212,166,111,0.08)]"
           >
             <p className="text-silver-dim leading-relaxed text-base md:text-lg">
               Als Freelancer verbinde ich technische Exzellenz mit pragmatischen,
@@ -44,7 +44,7 @@ export function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08, duration: 0.5 }}
-                className="rounded-3xl border border-white/10 bg-bg-elevated/80 px-6 py-5 text-sm text-silver-bright"
+                className="rounded-3xl border border-gold/20 bg-bg-elevated/80 px-6 py-5 text-sm text-gold-bright"
               >
                 {badge}
               </motion.div>
