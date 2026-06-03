@@ -4,10 +4,9 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const badges = [
-  "Azure AZ-900 zertifiziert",
   "Deutsch – Muttersprache",
   "Englisch – Fließend",
-  "Russisch – Fließend",
+  "Russisch – Grundkenntnisse",
   "Standort: Lastrup, Niedersachsen",
 ] as const;
 
@@ -18,7 +17,7 @@ export function About() {
         <SectionHeading
           label="Über mich"
           title="Software Engineer & Digitalisierungspartner"
-          description="Ich bin Nikita Aleschkin, Software Engineer & Digitalisierungspartner aus Lastrup, Niedersachsen. Ich helfe Unternehmen dabei, mit modernen Weblösungen, KI-Integrationen und intelligenten Automationen effizienter zu arbeiten – zuverlässig, maßgeschneidert und zukunftssicher."
+          description="Ich bin Nikita Aleschkin. Ich helfe Unternehmen dabei, mit modernen Weblösungen, KI-Integrationen und intelligenten Automationen effizienter zu arbeiten – zuverlässig, maßgeschneidert und zukunftssicher."
         />
 
         <div className="grid gap-10 lg:grid-cols-[1.8fr_1fr] items-start">
@@ -30,10 +29,10 @@ export function About() {
             className="glass border border-gold/20 rounded-3xl p-10 bg-gold/[0.02] shadow-[0_0_30px_rgba(212,166,111,0.08)]"
           >
             <p className="text-silver-dim leading-relaxed text-base md:text-lg">
-              Als Software Engineer und Digitalisierungspartner verbinde ich technische Exzellenz mit pragmatischen,
-              ergebnisorientierten Lösungen. Ich entwickle Webseiten, KI-getriebene
-              Automationen und API-Integrationen, die Prozesse digitalisieren,
-              Prozesse beschleunigen und echten Mehrwert liefern.
+              Als Entwickler verbinde ich technische Präzision mit pragmatischen,
+              ergebnisorientierten Lösungen. Mein Fokus liegt auf Webanwendungen, KI-getriebenen
+              Automationen und API-Integrationen, die Arbeitsabläufe digitalisieren,
+              beschleunigen und echten Mehrwert liefern.
             </p>
           </motion.div>
 

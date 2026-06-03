@@ -99,7 +99,6 @@ export const techStack = [
   "Power Automate",
   "Microsoft Graph API",
   "HubSpot",
-  "Azure (AZ-900)",
   "MongoDB",
   "Nginx",
 ] as const;
