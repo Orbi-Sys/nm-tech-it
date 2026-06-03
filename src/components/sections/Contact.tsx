@@ -40,6 +40,11 @@ export function Contact() {
   const inputClass =
     "w-full px-5 py-4 rounded-xl bg-gold/[0.02] border text-silver-bright placeholder:text-silver-dim/50 outline-none transition-all duration-300";
 
+  const openExternalContact = (href: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.open(href, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <section id="contact" className="relative py-28 md:py-36 snap-section">
       <div className="absolute inset-0 pointer-events-none">
@@ -155,6 +160,7 @@ export function Contact() {
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           <a
             href="mailto:kontakt@nm-tech-it.de"
+            onClick={openExternalContact("mailto:kontakt@nm-tech-it.de")}
             className="rounded-3xl border border-gold/20 bg-gold/[0.03] px-6 py-5 text-sm text-gold-bright transition-colors hover:border-gold/40 hover:bg-gold/10"
           >
             <span className="block text-gold-dim text-xs uppercase tracking-[0.3em] mb-2">E-Mail</span>
@@ -162,19 +168,20 @@ export function Contact() {
           </a>
           <a
             href="tel:+4915234801274"
+            onClick={openExternalContact("tel:+4915234801274")}
             className="rounded-3xl border border-gold/20 bg-gold/[0.03] px-6 py-5 text-sm text-gold-bright transition-colors hover:border-gold/40 hover:bg-gold/10"
           >
             <span className="block text-gold-dim text-xs uppercase tracking-[0.3em] mb-2">Telefon</span>
             +49 1523 4801274
           </a>
           <a
-            href="https://linkedin.com/in/nikita-aleschkin-it"
+            href="https://wa.me/4915234801274"
             target="_blank"
             rel="noreferrer noopener"
             className="rounded-3xl border border-gold/20 bg-gold/[0.03] px-6 py-5 text-sm text-gold-bright transition-colors hover:border-gold/40 hover:bg-gold/10"
           >
-            <span className="block text-gold-dim text-xs uppercase tracking-[0.3em] mb-2">LinkedIn</span>
-            linkedin.com/in/nikita-aleschkin-it
+            <span className="block text-gold-dim text-xs uppercase tracking-[0.3em] mb-2">WhatsApp</span>
+            Nachricht senden
           </a>
         </div>
       </div>

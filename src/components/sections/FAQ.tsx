@@ -192,51 +192,6 @@ export function FAQ() {
           </div>
         </div>
 
-        {/* CTA Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-20 md:mt-24 rounded-3xl border border-white/10 bg-gradient-to-r from-white/[0.03] to-white/[0.01] p-8 md:p-12 text-center relative overflow-hidden"
-        >
-          <div className="absolute inset-0 grid-bg opacity-10" />
-          <div className="absolute -left-20 -top-20 w-40 h-40 bg-white/5 rounded-full blur-3xl" />
-          <div className="absolute -right-20 -bottom-20 w-40 h-40 bg-white/5 rounded-full blur-3xl" />
-
-          <div className="relative z-10 max-w-2xl mx-auto space-y-6">
-            <h3 className="font-display text-2xl md:text-3xl font-bold text-white">
-              Haben Sie noch Fragen?
-            </h3>
-            <p className="text-silver-dim text-sm md:text-base leading-relaxed">
-              Sollte Ihre Frage hier nicht beantwortet worden sein oder Sie möchten Ihr Projekt
-              direkt besprechen, zögern Sie nicht, mich zu kontaktieren. Ich melde mich
-              schnellstmöglich bei Ihnen.
-            </p>
-            <div className="pt-2">
-              <Link
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 hover:border-white/25 text-white font-medium text-sm transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,255,255,0.05)] cursor-pointer"
-              >
-                <span>Kontakt aufnehmen</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  className="w-4 h-4"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

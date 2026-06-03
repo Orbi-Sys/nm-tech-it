@@ -49,17 +49,6 @@ export function Footer() {
             ))}
           </nav>
 
-          <div className="flex gap-4">
-            <a
-              href="https://linkedin.com/in/nikita-aleschkin-it"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="w-10 h-10 rounded-lg border border-gold/20 flex items-center justify-center text-xs text-silver-dim hover:border-gold/40 hover:text-gold-bright transition-all"
-              title="LinkedIn"
-            >
-              L
-            </a>
-          </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-gold/10 text-center text-sm text-silver-dim">
