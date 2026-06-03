@@ -37,7 +37,8 @@ export function Navbar() {
               height={96}
               priority
               unoptimized
-              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+              style={{ width: "100%", height: "auto" }}
+              className="object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </div>
           <span className="hidden sm:block font-display text-sm font-semibold tracking-[0.2em] text-silver-bright uppercase">
