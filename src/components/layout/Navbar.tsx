@@ -23,15 +23,21 @@ export function Navbar() {
           : "bg-bg-deep/40 border-white/5 backdrop-blur-md"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <nav className={`mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 transition-all duration-500 ${
+        scrolled ? "py-2" : "py-4"
+      }`}>
         <Link href="#" className="flex items-center gap-4 group">
-          <div className="relative w-[64px] h-[64px] shrink-0">
+          <div className={`relative shrink-0 transition-all duration-500 ${
+            scrolled ? "w-[72px] h-[72px]" : "w-[96px] h-[96px]"
+          }`}>
             <Image
               src="/logo.png"
               alt="NM-TECH IT Logo"
-              width={64}
-              height={64}
-              className="transition-transform duration-300 group-hover:scale-105"
+              width={96}
+              height={96}
+              priority
+              unoptimized
+              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </div>
           <span className="hidden sm:block font-display text-sm font-semibold tracking-[0.2em] text-silver-bright uppercase">

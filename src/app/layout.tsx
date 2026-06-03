@@ -4,12 +4,12 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  title: "NM-TECH IT – Freelance Developer & KI-Spezialist",
+  title: "NM-TECH IT – Software Engineer & Digitalisierungspartner",
   description:
-    "Nikita Aleschkin – Freelance Developer & KI-Spezialist aus Lastrup. Moderne Webseiten, KI-Integrationen und intelligente Automationen für Unternehmen.",
+    "Nikita Aleschkin – Software Engineer & Digitalisierungspartner aus Lastrup. Moderne Webseiten, KI-Integrationen und intelligente Automationen für Unternehmen.",
   keywords: [
-    "Freelance Developer",
-    "KI-Spezialist",
+    "Software Engineer",
+    "Digitalisierungspartner",
     "Webentwicklung",
     "Automation",
     "Next.js",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     icon: "/logo.ico",
   },
   openGraph: {
-    title: "NM-TECH IT – Freelance Developer & KI-Spezialist",
+    title: "NM-TECH IT – Software Engineer & Digitalisierungspartner",
     description:
-      "Nikita Aleschkin – Freelance Developer & KI-Spezialist aus Lastrup. Moderne Webseiten, KI-Integrationen und intelligente Automationen für Unternehmen.",
+      "Nikita Aleschkin – Software Engineer & Digitalisierungspartner aus Lastrup. Moderne Webseiten, KI-Integrationen und intelligente Automationen für Unternehmen.",
     type: "website",
     locale: "de_DE",
   },

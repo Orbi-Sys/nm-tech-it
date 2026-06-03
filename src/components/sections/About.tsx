@@ -7,6 +7,7 @@ const badges = [
   "Azure AZ-900 zertifiziert",
   "Deutsch – Muttersprache",
   "Englisch – Fließend",
+  "Russisch – Fließend",
   "Standort: Lastrup, Niedersachsen",
 ] as const;
 
@@ -16,8 +17,8 @@ export function About() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
           label="Über mich"
-          title="Freelance Developer & KI-Spezialist"
-          description="Ich bin Nikita Aleschkin, Freelance Developer & KI-Spezialist aus Lastrup, Niedersachsen. Ich helfe Unternehmen dabei, mit modernen Weblösungen, KI-Integrationen und intelligenten Automationen effizienter zu arbeiten – zuverlässig, maßgeschneidert und zukunftssicher."
+          title="Software Engineer & Digitalisierungspartner"
+          description="Ich bin Nikita Aleschkin, Software Engineer & Digitalisierungspartner aus Lastrup, Niedersachsen. Ich helfe Unternehmen dabei, mit modernen Weblösungen, KI-Integrationen und intelligenten Automationen effizienter zu arbeiten – zuverlässig, maßgeschneidert und zukunftssicher."
         />
 
         <div className="grid gap-10 lg:grid-cols-[1.8fr_1fr] items-start">
@@ -29,7 +30,7 @@ export function About() {
             className="glass border border-gold/20 rounded-3xl p-10 bg-gold/[0.02] shadow-[0_0_30px_rgba(212,166,111,0.08)]"
           >
             <p className="text-silver-dim leading-relaxed text-base md:text-lg">
-              Als Freelancer verbinde ich technische Exzellenz mit pragmatischen,
+              Als Software Engineer und Digitalisierungspartner verbinde ich technische Exzellenz mit pragmatischen,
               ergebnisorientierten Lösungen. Ich entwickle Webseiten, KI-getriebene
               Automationen und API-Integrationen, die Prozesse digitalisieren,
               Prozesse beschleunigen und echten Mehrwert liefern.

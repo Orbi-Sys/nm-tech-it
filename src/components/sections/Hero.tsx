@@ -47,7 +47,7 @@ export function Hero() {
           className="flex flex-col items-center justify-center gap-2 mb-4"
         >
           <span className="text-sm md:text-base text-gold-bright uppercase tracking-[0.3em]">
-            Freelance Developer & KI-Spezialist
+            Software Engineer & Digitalisierungspartner
           </span>
         </motion.div>
 
