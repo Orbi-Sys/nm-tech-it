@@ -1,6 +1,16 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+
+export const metadata: Metadata = {
+  title: "Impressum – NM-TECH IT",
+  description:
+    "Impressum von NM-TECH IT. Gesetzliche Angaben, Kontaktmöglichkeiten und Vertretungsberechtigte.",
+  alternates: {
+    canonical: "https://nm-tech-it.de/impressum",
+  },
+};
 
 export default function ImpressumPage() {
   return (
@@ -19,7 +29,7 @@ export default function ImpressumPage() {
               <div className="space-y-6 text-silver-dim leading-relaxed text-base md:text-lg">
                 <p>Nikita Aleschkin</p>
                 <p>Heinrich-Böll-Str. 12</p>
-                <p>49757 Lastrup, Niedersachsen</p>
+                <p>49688 Lastrup, Niedersachsen</p>
                 <p>Tel: <a href="tel:+4915234801274" className="text-silver-bright hover:text-white transition-colors">+49 1523 4801274</a></p>
                 <p>E-Mail: <a href="mailto:kontakt@nm-tech-it.de" className="text-silver-bright hover:text-white transition-colors">kontakt@nm-tech-it.de</a></p>
                 <p>Steuernummer: wird nach Zuteilung durch das Finanzamt ergänzt</p>
@@ -32,3 +42,4 @@ export default function ImpressumPage() {
     </div>
   );
 }
+

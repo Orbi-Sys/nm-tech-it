@@ -1,6 +1,16 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+
+export const metadata: Metadata = {
+  title: "Datenschutzerklärung – NM-TECH IT",
+  description:
+    "Datenschutzerklärung von NM-TECH IT. Informationen zur Verarbeitung personenbezogener Daten auf dieser Website mit Kontaktformular.",
+  alternates: {
+    canonical: "https://nm-tech-it.de/datenschutz",
+  },
+};
 
 export default function DatenschutzPage() {
   return (
@@ -23,7 +33,7 @@ export default function DatenschutzPage() {
                 <br />
                 Heinrich-Böll-Str. 12
                 <br />
-                49757 Lastrup, Niedersachsen
+                49688 Lastrup, Niedersachsen
                 <br />
                 E-Mail: <a href="mailto:kontakt@nm-tech-it.de" className="text-silver-bright hover:text-white">kontakt@nm-tech-it.de</a>
               </p>
@@ -53,3 +63,4 @@ export default function DatenschutzPage() {
     </div>
   );
 }
+
