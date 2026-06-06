@@ -25,30 +25,21 @@ export function FAQ() {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Mobile Category Tabs (Horizontal Scroll) */}
-          <div className="flex lg:hidden overflow-x-auto pb-3 mb-4 gap-3 snap-x snap-mandatory -mx-6 px-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {/* Mobile Category Tabs (Wrap Grid) */}
+          <div className="flex lg:hidden flex-wrap gap-2 mb-4">
             {faqCategories.map((category, idx) => {
               const isActive = activeCategory === idx;
               return (
                 <button
                   key={category.category}
                   onClick={() => handleCategoryChange(idx)}
-                  className="relative flex-none snap-start px-5 py-3 rounded-xl cursor-pointer focus:outline-none"
+                  className={`relative px-4 py-2.5 rounded-xl cursor-pointer focus:outline-none border text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
+                    isActive
+                      ? "border-gold/30 bg-gold/[0.08] text-gold-bright shadow-[0_0_15px_rgba(212,166,111,0.1)]"
+                      : "border-white/10 bg-white/[0.02] text-silver-dim hover:text-gold-dim hover:border-gold/20"
+                  }`}
                 >
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeCategoryTabMobile"
-                      className="absolute inset-0 border border-gold/20 bg-gold/[0.05] rounded-xl shadow-[0_0_20px_rgba(212,166,111,0.05)]"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  <span
-                    className={`relative z-10 text-xs font-semibold uppercase tracking-wider transition-colors duration-300 ${
-                      isActive ? "text-gold-bright" : "text-silver-dim hover:text-gold-dim"
-                    }`}
-                  >
-                    {category.category}
-                  </span>
+                  {category.category}
                 </button>
               );
             })}
