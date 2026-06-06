@@ -17,7 +17,8 @@ export default function Home() {
     <GsapProvider>
       <div
         id="nm-veil"
-        className="fixed inset-0 z-[99] bg-bg-deep"
+        className="fixed inset-0 z-[99] bg-bg-deep pointer-events-none"
+        style={{ transition: "opacity 0.5s ease" }}
         aria-hidden="true"
       />
       <ClientLoadingScreen />

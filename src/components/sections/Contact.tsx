@@ -50,8 +50,41 @@ export function Contact() {
         <SectionHeading
           label="Kontakt"
           title="Projekt starten"
-          description="Erzählen Sie mir von Ihrem Vorhaben – ich melde mich zeitnah bei Ihnen."
+          description="Buchen Sie ein kostenloses Erstgespräch oder schreiben Sie mir direkt."
         />
+
+        <motion.a
+          href="https://calendly.com/nm-tech-it"
+          target="_blank"
+          rel="noreferrer noopener"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          whileHover={{ scale: 1.01 }}
+          className="group flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-gold/30 bg-gold/[0.04] p-8 mb-8 hover:border-gold/50 hover:bg-gold/[0.07] transition-all duration-300 glow-ring"
+        >
+          <div>
+            <span className="block text-xs tracking-widest uppercase text-gold-dim mb-2">
+              Kostenloses Erstgespräch
+            </span>
+            <h3 className="font-display text-xl font-semibold text-gold-bright mb-1">
+              30 Minuten · Unverbindlich · Online
+            </h3>
+            <p className="text-sm text-silver-dim">
+              Termin direkt in meinem Kalender buchen – ohne Wartezeit.
+            </p>
+          </div>
+          <span className="shrink-0 px-6 py-3 rounded-xl border border-gold/40 bg-gold/10 text-gold-bright text-sm font-medium tracking-widest uppercase group-hover:bg-gold/20 group-hover:border-gold/60 transition-all duration-300">
+            Jetzt buchen →
+          </span>
+        </motion.a>
+
+        <div className="flex items-center gap-4 mb-8">
+          <div className="flex-1 h-px bg-gold/10" />
+          <span className="text-xs tracking-widest uppercase text-silver-dim">oder Nachricht senden</span>
+          <div className="flex-1 h-px bg-gold/10" />
+        </div>
 
         <motion.form
           initial={{ opacity: 0, y: 40 }}
