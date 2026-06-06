@@ -102,6 +102,25 @@ export function Contact() {
           </div>
 
           <div>
+            <label htmlFor="phone" className="block text-xs tracking-widest uppercase text-silver-dim mb-2">
+              Telefon <span className="normal-case tracking-normal">(optional)</span>
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              onFocus={() => setFocused("phone")}
+              onBlur={() => setFocused(null)}
+              className={`${inputClass} ${
+                focused === "phone"
+                  ? "border-gold/40 shadow-[0_0_20px_rgba(212,166,111,0.12)]"
+                  : "border-gold/20"
+              }`}
+              placeholder="+49 1234 567890"
+            />
+          </div>
+
+          <div>
             <label htmlFor="message" className="block text-xs tracking-widest uppercase text-silver-dim mb-2">
               Nachricht
             </label>

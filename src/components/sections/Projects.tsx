@@ -27,7 +27,7 @@ export function Projects() {
               >
                 <div className="aspect-auto min-h-[240px] sm:aspect-[16/10] relative p-6 sm:p-8 flex flex-col justify-between">
                   <div className="absolute inset-0 grid-bg opacity-20" />
-                  <div className="absolute top-6 right-6 px-3 py-1 rounded-full border border-gold/30 text-[10px] tracking-widest uppercase text-gold-dim bg-black/30 backdrop-blur-sm z-30">
+                  <div className={`absolute top-6 right-6 px-3 py-1 rounded-full border text-[10px] tracking-widest uppercase backdrop-blur-sm z-30 ${project.accentColor}`}>
                     {project.accent}
                   </div>
 

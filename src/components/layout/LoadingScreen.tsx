@@ -5,12 +5,17 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export function LoadingScreen() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => {
+    if (typeof window === "undefined") return true;
+    return sessionStorage.getItem("nm_visited") !== "1";
+  });
 
   useEffect(() => {
+    if (!loading) return;
+    sessionStorage.setItem("nm_visited", "1");
     const timer = setTimeout(() => setLoading(false), 2200);
     return () => clearTimeout(timer);
-  }, []);
+  }, [loading]);
 
   return (
     <AnimatePresence>

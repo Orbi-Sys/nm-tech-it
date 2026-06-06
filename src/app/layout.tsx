@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
+import { Inter, Syne } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { BackToTop } from "@/components/ui/BackToTop";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  weight: ["400", "500", "600"],
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   title: "NM-TECH IT – Software Engineer & Digitalisierungspartner",
@@ -45,12 +60,14 @@ export const metadata: Metadata = {
     siteName: "NM-TECH IT",
     locale: "de_DE",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "NM-TECH IT – Software Engineer & Digitalisierungspartner",
-    description:
-      "Nikita Aleschkin – Software Engineer & Digitalisierungspartner aus Lastrup. Moderne Webseiten, KI-Integrationen und intelligente Automationen für Unternehmen.",
+    images: [
+      {
+        url: "https://nm-tech-it.de/logo.png",
+        width: 512,
+        height: 512,
+        alt: "NM-TECH IT Logo",
+      },
+    ],
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "",
@@ -88,18 +105,8 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="de">
+    <html lang="de" className={`${inter.variable} ${syne.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

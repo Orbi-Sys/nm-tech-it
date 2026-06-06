@@ -2,12 +2,20 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { AnimatedGrid } from "@/components/ui/AnimatedGrid";
 import { Particles } from "@/components/ui/Particles";
 import { Button } from "@/components/ui/Button";
-import { CircuitAccent } from "@/components/ui/CircuitAccent";
 
 export function Hero() {
+  const [animDelay, setAnimDelay] = useState(2.2);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("nm_visited") === "1") {
+      setAnimDelay(0);
+    }
+  }, []);
+
   return (
     <section
       id="hero"
@@ -23,7 +31,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.85, filter: "blur(12px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 2.2 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: animDelay }}
           className="mb-1 flex justify-center"
         >
           <div className="relative w-[200px] h-[200px] md:w-[320px] md:h-[320px]">
@@ -43,7 +51,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2.5, duration: 0.6 }}
+          transition={{ delay: animDelay + 0.3, duration: 0.6 }}
           className="flex flex-col items-center justify-center gap-2 mb-4"
         >
           <span className="text-sm md:text-base text-gold-bright uppercase tracking-[0.3em]">
@@ -54,7 +62,7 @@ export function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 2.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.9, delay: animDelay + 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight metallic-text max-w-5xl mx-auto"
         >
           Moderne Webseiten, KI-Systeme & intelligente Automationen.
@@ -63,7 +71,7 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 2.8 }}
+          transition={{ duration: 0.8, delay: animDelay + 0.6 }}
           className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-silver-dim leading-relaxed"
         >
           Ich entwickle hochwertige digitale Lösungen für Unternehmen – modern,
@@ -73,7 +81,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 3 }}
+          transition={{ duration: 0.7, delay: animDelay + 0.8 }}
           className="mt-10 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button href="#contact" variant="primary">
@@ -88,7 +96,7 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3.4, duration: 1 }}
+        transition={{ delay: animDelay + 1.2, duration: 1 }}
         className="absolute bottom-14 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
       >
         <span className="text-[10px] tracking-widest uppercase text-silver-dim">Scroll</span>

@@ -2,6 +2,7 @@ export const navLinks = [
   { label: "Über mich", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Projekte", href: "#projects" },
+  { label: "Vorteile", href: "#why" },
   { label: "FAQ", href: "#faq" },
   { label: "Tech Stack", href: "#tech" },
   { label: "Prozess", href: "#process" },
@@ -53,7 +54,8 @@ export const projects = [
     category: "KI / Dashboard",
     description:
       "Echtzeit-Analyse von Leads und Deals via Webhooks mit n8n. KI-gestützte Deal-Bewertung mit Abschlusswahrscheinlichkeit, Risikoerkennung und Handlungsempfehlungen.",
-    gradient: "from-zinc-800 via-zinc-900 to-black",
+    gradient: "from-indigo-950 via-zinc-900 to-black",
+    accentColor: "border-indigo-500/30 text-indigo-300 bg-indigo-950/50",
     accent: "KI",
   },
   {
@@ -61,7 +63,8 @@ export const projects = [
     category: "Automation",
     description:
       "Workflow zur automatischen Verarbeitung von 600–800 CSV-Datensätzen aus Google Drive mit JavaScript-Filterlogik und Übertragung in Microsoft Excel. Zeitersparnis: ca. 4 Stunden pro Durchlauf.",
-    gradient: "from-zinc-800 via-zinc-900 to-black",
+    gradient: "from-emerald-950 via-zinc-900 to-black",
+    accentColor: "border-emerald-500/30 text-emerald-300 bg-emerald-950/50",
     accent: "AUTOMATION",
   },
   {
@@ -69,7 +72,8 @@ export const projects = [
     category: "KI / Automation",
     description:
       "KI-gestützter Workflow zur automatischen Erstellung mehrseitiger Dokumente aus HTML-Daten. Zeitersparnis: ca. 1 Stunde pro Vorgang.",
-    gradient: "from-zinc-800 via-zinc-900 to-black",
+    gradient: "from-violet-950 via-zinc-900 to-black",
+    accentColor: "border-violet-500/30 text-violet-300 bg-violet-950/50",
     accent: "KI",
   },
   {
@@ -77,7 +81,8 @@ export const projects = [
     category: "KI",
     description:
       "Automatisierte Analyse von Bewerberunterlagen (PDF, Word, gescannte Dokumente) mit strukturierter Positiv-/Negativbewertung und automatischer Benachrichtigung bei geeigneten Kandidaten.",
-    gradient: "from-zinc-800 via-zinc-900 to-black",
+    gradient: "from-amber-950 via-zinc-900 to-black",
+    accentColor: "border-amber-500/30 text-amber-300 bg-amber-950/50",
     accent: "RECRUIT",
   },
 ] as const;

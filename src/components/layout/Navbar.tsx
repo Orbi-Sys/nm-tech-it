@@ -73,6 +73,7 @@ export function Navbar() {
           onClick={() => setOpen(!open)}
           className="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
           aria-label="Menü"
+          aria-expanded={open}
         >
           <span className={`block w-6 h-px bg-white transition-transform ${open ? "rotate-45 translate-y-2" : ""}`} />
           <span className={`block w-6 h-px bg-white transition-opacity ${open ? "opacity-0" : ""}`} />
