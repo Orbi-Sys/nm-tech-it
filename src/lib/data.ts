@@ -2,9 +2,9 @@ export const navLinks = [
   { label: "Über mich", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Projekte", href: "#projects" },
+  { label: "Tech Stack", href: "#tech" },
   { label: "Vorteile", href: "#why" },
   { label: "FAQ", href: "#faq" },
-  { label: "Tech Stack", href: "#tech" },
   { label: "Prozess", href: "#process" },
   { label: "Kontakt", href: "#contact" },
 ] as const;
