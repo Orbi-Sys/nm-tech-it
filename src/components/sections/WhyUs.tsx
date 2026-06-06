@@ -9,7 +9,7 @@ export function WhyUs() {
   const gridRef = useGsapReveal<HTMLDivElement>({ stagger: 0.08 });
 
   return (
-    <section id="why" className="relative py-28 md:py-36 snap-section">
+    <section id="why" className="relative py-28 md:py-36 snap-section overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
           label="Vorteile"

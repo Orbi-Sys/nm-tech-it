@@ -41,7 +41,7 @@ export function Contact() {
     "w-full px-5 py-4 rounded-xl bg-gold/[0.02] border text-silver-bright placeholder:text-silver-dim/50 outline-none transition-all duration-300";
 
   return (
-    <section id="contact" className="relative py-28 md:py-36 snap-section">
+    <section id="contact" className="relative py-28 md:py-36 snap-section overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gold/[0.03] rounded-full blur-[100px]" />
       </div>

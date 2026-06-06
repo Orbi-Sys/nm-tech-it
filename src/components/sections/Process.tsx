@@ -60,7 +60,7 @@ export function Process() {
   }, []);
 
   return (
-    <section id="process" ref={sectionRef} className="relative py-28 md:py-36 snap-section">
+    <section id="process" ref={sectionRef} className="relative py-28 md:py-36 snap-section overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bg-elevated/40 to-transparent pointer-events-none" />
       <div className="relative mx-auto max-w-4xl px-6 lg:px-8">
         <SectionHeading

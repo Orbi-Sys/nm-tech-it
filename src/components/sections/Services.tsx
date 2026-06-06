@@ -11,7 +11,7 @@ export function Services() {
   const gridRef = useGsapReveal<HTMLDivElement>({ stagger: 0.1 });
 
   return (
-    <section id="services" className="relative py-28 md:py-36 snap-section">
+    <section id="services" className="relative py-28 md:py-36 snap-section overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-bg-deep via-bg-elevated/50 to-bg-deep pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading

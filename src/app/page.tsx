@@ -17,7 +17,7 @@ export default function Home() {
     <GsapProvider>
       <LoadingScreen />
       <Navbar />
-      <main className="snap-container">
+      <main className="snap-container overflow-x-hidden w-full relative">
         <Hero />
         <About />
         <Services />

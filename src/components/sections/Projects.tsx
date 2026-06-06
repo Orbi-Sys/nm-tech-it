@@ -9,7 +9,7 @@ export function Projects() {
   const gridRef = useGsapReveal<HTMLDivElement>({ y: 80, stagger: 0.15 });
 
   return (
-    <section id="projects" className="relative py-28 md:py-36 snap-section">
+    <section id="projects" className="relative py-28 md:py-36 snap-section overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
           label="Portfolio"
