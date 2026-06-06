@@ -2,7 +2,10 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
+
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 import { AnimatedGrid } from "@/components/ui/AnimatedGrid";
 import { Particles } from "@/components/ui/Particles";
 import { Button } from "@/components/ui/Button";
@@ -10,7 +13,7 @@ import { Button } from "@/components/ui/Button";
 export function Hero() {
   const [animDelay, setAnimDelay] = useState(2.2);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (sessionStorage.getItem("nm_visited") === "1") {
       setAnimDelay(0);
     }
