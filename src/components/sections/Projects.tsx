@@ -25,7 +25,7 @@ export function Projects() {
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className={`group relative overflow-hidden rounded-2xl border border-gold/20 bg-gradient-to-br ${project.gradient} glow-ring cursor-default`}
               >
-                <div className="aspect-[16/10] relative p-8 flex flex-col justify-between">
+                <div className="aspect-auto min-h-[240px] sm:aspect-[16/10] relative p-6 sm:p-8 flex flex-col justify-between">
                   <div className="absolute inset-0 grid-bg opacity-20" />
                   <div className="absolute top-6 right-6 px-3 py-1 rounded-full border border-gold/30 text-[10px] tracking-widest uppercase text-gold-dim bg-black/30 backdrop-blur-sm z-30">
                     {project.accent}
@@ -40,8 +40,8 @@ export function Projects() {
                       {project.title}
                     </h3>
                     
-                    {/* Description - Hidden by default, shown on hover */}
-                    <p className="text-silver-dim text-sm leading-relaxed max-h-0 group-hover:max-h-32 opacity-0 group-hover:opacity-100 transition-all duration-300 overflow-hidden">
+                    {/* Description - Shown on hover on desktop, always visible on mobile */}
+                    <p className="text-silver-dim text-sm leading-relaxed lg:max-h-0 lg:group-hover:max-h-32 lg:opacity-0 lg:group-hover:opacity-100 max-h-32 opacity-100 transition-all duration-300 overflow-hidden">
                       {project.description}
                     </p>
                   </div>

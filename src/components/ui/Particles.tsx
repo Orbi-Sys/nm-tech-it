@@ -14,7 +14,8 @@ export function Particles() {
 
     let animationId: number;
     const particles: { x: number; y: number; vx: number; vy: number; size: number; opacity: number }[] = [];
-    const count = 60;
+    const isMobile = window.innerWidth < 768;
+    const count = isMobile ? 25 : 60;
 
     const resize = () => {
       canvas.width = canvas.offsetWidth * window.devicePixelRatio;

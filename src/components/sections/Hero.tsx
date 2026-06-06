@@ -19,14 +19,14 @@ export function Hero() {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-white/[0.03] rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-bg-deep to-transparent pointer-events-none" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-32 pb-36 lg:px-8 text-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-28 pb-28 md:pt-32 md:pb-36 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.85, filter: "blur(12px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 2.2 }}
           className="mb-1 flex justify-center"
         >
-          <div className="relative w-[320px] h-[320px]">
+          <div className="relative w-[200px] h-[200px] md:w-[320px] md:h-[320px]">
             <div className="absolute -inset-8 bg-gold/10 rounded-full blur-3xl animate-pulse-glow" />
             <Image
               src="/logo.png"
@@ -35,7 +35,7 @@ export function Hero() {
               height={320}
               priority
               loading="eager"
-              className="relative drop-shadow-[0_0_60px_rgba(212,166,111,0.2)]"
+              className="relative drop-shadow-[0_0_60px_rgba(212,166,111,0.2)] w-full h-full object-contain"
             />
           </div>
         </motion.div>
@@ -74,13 +74,13 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 3 }}
-          className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-10 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button href="#contact" variant="primary">
             Projekt starten
           </Button>
-          <Button href="#contact" variant="secondary">
-            Kontakt aufnehmen
+          <Button href="#faq" variant="secondary">
+            Häufige Fragen
           </Button>
         </motion.div>
       </div>

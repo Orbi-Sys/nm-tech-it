@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 type TiltCardProps = {
   children: React.ReactNode;
@@ -12,6 +12,12 @@ export function TiltCard({ children, className = "" }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const [hasHover, setHasHover] = useState(false);
+
+  useEffect(() => {
+    // Check if the device has hover capabilities (desktop)
+    setHasHover(window.matchMedia("(hover: hover)").matches);
+  }, []);
 
   const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [8, -8]), {
     stiffness: 300,
@@ -23,7 +29,7 @@ export function TiltCard({ children, className = "" }: TiltCardProps) {
   });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
+    if (!hasHover || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
@@ -32,6 +38,7 @@ export function TiltCard({ children, className = "" }: TiltCardProps) {
   };
 
   const handleMouseLeave = () => {
+    if (!hasHover) return;
     x.set(0);
     y.set(0);
   };
@@ -41,10 +48,15 @@ export function TiltCard({ children, className = "" }: TiltCardProps) {
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      style={{
+        rotateX: hasHover ? rotateX : 0,
+        rotateY: hasHover ? rotateY : 0,
+        transformStyle: "preserve-3d",
+      }}
       className={`perspective-[1000px] ${className}`}
     >
       {children}
     </motion.div>
   );
 }
+

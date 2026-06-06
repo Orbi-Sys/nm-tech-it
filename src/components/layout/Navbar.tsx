@@ -26,9 +26,11 @@ export function Navbar() {
       <nav className={`mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 transition-all duration-500 ${
         scrolled ? "py-2" : "py-4"
       }`}>
-        <Link href="#" className="flex items-center gap-4 group">
+        <Link href="#" className="flex items-center gap-3 sm:gap-4 group">
           <div className={`relative shrink-0 transition-all duration-500 ${
-            scrolled ? "w-[72px] h-[72px]" : "w-[96px] h-[96px]"
+            scrolled
+              ? "w-[48px] h-[48px] md:w-[72px] md:h-[72px]"
+              : "w-[64px] h-[64px] md:w-[96px] md:h-[96px]"
           }`}>
             <Image
               src="/logo.png"
@@ -69,7 +71,7 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
           aria-label="Menü"
         >
           <span className={`block w-6 h-px bg-white transition-transform ${open ? "rotate-45 translate-y-2" : ""}`} />
@@ -84,23 +86,23 @@ export function Navbar() {
           animate={{ opacity: 1, height: "auto" }}
           className="md:hidden border-t border-white/10 bg-bg-deep/95 backdrop-blur-xl"
         >
-          <ul className="flex flex-col gap-4 p-6">
+          <ul className="flex flex-col gap-2 p-6">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-silver hover:text-gold-bright transition-colors"
+                  className="block py-3 text-base font-medium text-silver hover:text-gold-bright transition-colors duration-300"
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
-            <li>
+            <li className="pt-4 mt-2 border-t border-white/5">
               <Link
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="inline-block mt-2 text-sm uppercase tracking-widest text-gold-bright"
+                className="block w-full text-center text-xs font-medium tracking-widest uppercase py-3.5 px-5 rounded-lg border border-gold/25 text-gold-bright bg-gold/5 hover:bg-gold/15 transition-all duration-300"
               >
                 Projekt starten
               </Link>

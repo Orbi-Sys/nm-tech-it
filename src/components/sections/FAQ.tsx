@@ -26,7 +26,7 @@ export function FAQ() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Mobile Category Tabs (Horizontal Scroll) */}
-          <div className="flex lg:hidden overflow-x-auto pb-3 mb-4 gap-3 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex lg:hidden overflow-x-auto pb-3 mb-4 gap-3 snap-x snap-mandatory -mx-6 px-6 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {faqCategories.map((category, idx) => {
               const isActive = activeCategory === idx;
               return (

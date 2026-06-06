@@ -16,6 +16,8 @@ export function Process() {
     if (!section || !line) return;
 
     const ctx = gsap.context(() => {
+      const isMobile = window.innerWidth < 768;
+
       gsap.fromTo(
         line,
         { scaleY: 0 },
@@ -34,10 +36,15 @@ export function Process() {
       gsap.utils.toArray<HTMLElement>("[data-step]").forEach((el, i) => {
         gsap.fromTo(
           el,
-          { opacity: 0, x: i % 2 === 0 ? -40 : 40 },
+          { 
+            opacity: 0, 
+            x: isMobile ? 0 : (i % 2 === 0 ? -40 : 40),
+            y: isMobile ? 25 : 0
+          },
           {
             opacity: 1,
             x: 0,
+            y: 0,
             duration: 0.8,
             scrollTrigger: {
               trigger: el,
@@ -90,7 +97,7 @@ export function Process() {
                   </div>
                 </div>
 
-                <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-4 h-4 rounded-full border-2 border-gold/50 bg-bg-deep z-10" />
+                <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-[18px] md:top-[12px] w-4 h-4 rounded-full border-2 border-gold/50 bg-bg-deep z-10" />
 
                 <div className="md:w-1/2 pl-16 md:pl-12">
                   <p className="text-silver-dim leading-relaxed">{step.description}</p>

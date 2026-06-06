@@ -41,7 +41,7 @@ export function BackToTop() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 flex items-center justify-center w-12 h-12 rounded-full bg-bg-elevated/70 backdrop-blur-md border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:border-gold/30 hover:shadow-[0_0_25px_rgba(212,166,111,0.2)] group cursor-pointer transition-all duration-300"
+          className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-40 flex items-center justify-center w-12 h-12 rounded-full bg-bg-elevated/70 backdrop-blur-md border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:border-gold/30 hover:shadow-[0_0_25px_rgba(212,166,111,0.2)] group cursor-pointer transition-all duration-300"
           aria-label="Nach oben scrollen"
         >
           {/* Circular Scroll Progress Ring */}
