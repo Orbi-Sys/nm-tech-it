@@ -26,7 +26,7 @@ export function Navbar() {
       <nav className={`mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 transition-all duration-500 ${
         scrolled ? "py-2" : "py-4"
       }`}>
-        <Link href="#" className="flex items-center gap-3 sm:gap-4 group">
+        <Link href="/" className="flex items-center gap-3 sm:gap-4 group">
           <div className={`relative shrink-0 transition-all duration-500 ${
             scrolled
               ? "w-[48px] h-[48px] md:w-[72px] md:h-[72px]"
