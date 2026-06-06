@@ -33,7 +33,7 @@ export function Navbar() {
               : "w-[64px] h-[64px] md:w-[96px] md:h-[96px]"
           }`}>
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="NM-TECH IT Logo"
               width={96}
               height={96}

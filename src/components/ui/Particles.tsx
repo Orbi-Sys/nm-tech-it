@@ -85,6 +85,8 @@ export function Particles() {
     const handleResize = () => { resize(); init(); };
     const handleVisibility = () => { isVisible = !document.hidden; };
 
+    if (isMobile) return;
+
     resize();
     init();
     draw();

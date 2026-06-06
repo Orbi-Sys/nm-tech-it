@@ -33,7 +33,7 @@ export function Hero() {
           <div className="relative w-[200px] h-[200px] md:w-[320px] md:h-[320px]">
             <div className="absolute -inset-8 bg-gold/10 rounded-full blur-3xl animate-pulse-glow" />
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="NM-TECH IT"
               width={320}
               height={320}
@@ -48,7 +48,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
           className="flex flex-col items-center justify-center gap-2 mb-4"
         >
           <span className="text-sm md:text-base text-gold-bright uppercase tracking-[0.3em]">
@@ -59,7 +59,7 @@ export function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight metallic-text max-w-5xl mx-auto"
         >
           Moderne Webseiten, KI-Systeme & intelligente Automationen.
@@ -68,7 +68,7 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
           className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-silver-dim leading-relaxed"
         >
           Ich entwickle hochwertige digitale Lösungen für Unternehmen – modern,
@@ -78,7 +78,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-10 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button href="#contact" variant="primary">
@@ -93,7 +93,7 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
         className="absolute bottom-14 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
       >
         <span className="text-[10px] tracking-widest uppercase text-silver-dim">Scroll</span>

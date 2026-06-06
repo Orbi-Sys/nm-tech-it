@@ -1,17 +1,19 @@
+import dynamic from "next/dynamic";
 import { ClientLoadingScreen } from "@/components/layout/ClientLoadingScreen";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { GsapProvider } from "@/components/providers/GsapProvider";
 import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Services } from "@/components/sections/Services";
-import { Projects } from "@/components/sections/Projects";
-import { TechStack } from "@/components/sections/TechStack";
-import { WhyUs } from "@/components/sections/WhyUs";
-import { FAQ } from "@/components/sections/FAQ";
-import { Process } from "@/components/sections/Process";
-import { Contact } from "@/components/sections/Contact";
 import { faqCategories } from "@/lib/data";
+
+const About    = dynamic(() => import("@/components/sections/About").then((m) => ({ default: m.About })));
+const Services = dynamic(() => import("@/components/sections/Services").then((m) => ({ default: m.Services })));
+const Projects = dynamic(() => import("@/components/sections/Projects").then((m) => ({ default: m.Projects })));
+const TechStack = dynamic(() => import("@/components/sections/TechStack").then((m) => ({ default: m.TechStack })));
+const WhyUs    = dynamic(() => import("@/components/sections/WhyUs").then((m) => ({ default: m.WhyUs })));
+const FAQ      = dynamic(() => import("@/components/sections/FAQ").then((m) => ({ default: m.FAQ })));
+const Process  = dynamic(() => import("@/components/sections/Process").then((m) => ({ default: m.Process })));
+const Contact  = dynamic(() => import("@/components/sections/Contact").then((m) => ({ default: m.Contact })));
 
 export default function Home() {
   const faqSchema = {

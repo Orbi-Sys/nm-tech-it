@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://nm-tech-it.de/logo.png",
+        url: "https://nm-tech-it.de/logo.webp",
         width: 512,
         height: 512,
         alt: "NM-TECH IT Logo",
@@ -84,7 +84,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "NM-TECH IT",
-    "image": "https://nm-tech-it.de/logo.png",
+    "image": "https://nm-tech-it.de/logo.webp",
     "@id": "https://nm-tech-it.de/#organization",
     "url": "https://nm-tech-it.de",
     "telephone": "+4915234801274",
@@ -110,9 +110,9 @@ export default function RootLayout({
       <head>
         <link
           rel="preload"
-          href="/logo.png"
+          href="/logo.webp"
           as="image"
-          type="image/png"
+          type="image/webp"
         />
         <script
           type="application/ld+json"
