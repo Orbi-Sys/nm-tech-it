@@ -53,6 +53,11 @@ export default function DatenschutzPage() {
                 Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerruf Ihrer Einwilligung und Widerspruch gegen die Verarbeitung. Zur Ausübung dieser Rechte kontaktieren Sie mich bitte per E-Mail.
               </p>
               <p>
+                <strong className="text-silver-bright">Terminbuchung via Calendly</strong>
+                <br />
+                Für die Buchung von Erstgesprächen nutze ich den Dienst Calendly (Calendly LLC, 271 17th St NW, Atlanta, GA, USA). Wenn Sie über das Buchungsformular einen Termin vereinbaren, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, ggf. weitere Angaben) an Calendly übermittelt und dort verarbeitet. Calendly kann Daten in die USA übertragen. Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung). Weitere Informationen finden Sie in der Datenschutzerklärung von Calendly unter <a href="https://calendly.com/privacy" target="_blank" rel="noreferrer noopener" className="text-silver-bright hover:text-white">calendly.com/privacy</a>.
+              </p>
+              <p>
                 Für Fragen zum Datenschutz können Sie sich jederzeit an mich wenden. Diese Datenschutzerklärung gilt ausschließlich für diese Website und nicht für verlinkte fremde Angebote.
               </p>
             </div>

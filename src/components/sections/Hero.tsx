@@ -7,7 +7,6 @@ import { Particles } from "@/components/ui/Particles";
 import { Button } from "@/components/ui/Button";
 
 export function Hero() {
-
   return (
     <section
       id="hero"

@@ -11,10 +11,30 @@ import { WhyUs } from "@/components/sections/WhyUs";
 import { FAQ } from "@/components/sections/FAQ";
 import { Process } from "@/components/sections/Process";
 import { Contact } from "@/components/sections/Contact";
-// This is the main page of the website, which composes all the sections together.
+import { faqCategories } from "@/lib/data";
+
 export default function Home() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqCategories.flatMap((cat) =>
+      cat.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      }))
+    ),
+  };
+
   return (
     <GsapProvider>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div
         id="nm-veil"
         className="fixed inset-0 z-[99] bg-bg-deep pointer-events-none"
