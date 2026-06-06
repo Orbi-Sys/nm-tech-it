@@ -8,12 +8,22 @@ export function LoadingScreen() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const veil = document.getElementById("nm-veil");
+
     if (sessionStorage.getItem("nm_visited") === "1") {
+      veil?.remove();
       setLoading(false);
       return;
     }
-    sessionStorage.setItem("nm_visited", "1");
-    const timer = setTimeout(() => setLoading(false), 2200);
+
+    // Veil bleibt bis LoadingScreen fertig ist, dann gemeinsam entfernen
+    const timer = setTimeout(() => {
+      sessionStorage.setItem("nm_visited", "1");
+      setLoading(false);
+      // Veil nach der Exit-Animation entfernen (0.8s)
+      setTimeout(() => veil?.remove(), 800);
+    }, 2200);
+
     return () => clearTimeout(timer);
   }, []);
 

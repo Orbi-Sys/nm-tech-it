@@ -1,4 +1,4 @@
-import { LoadingScreen } from "@/components/layout/LoadingScreen";
+import { ClientLoadingScreen } from "@/components/layout/ClientLoadingScreen";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { GsapProvider } from "@/components/providers/GsapProvider";
@@ -15,7 +15,12 @@ import { Contact } from "@/components/sections/Contact";
 export default function Home() {
   return (
     <GsapProvider>
-      <LoadingScreen />
+      <div
+        id="nm-veil"
+        className="fixed inset-0 z-[99] bg-bg-deep"
+        aria-hidden="true"
+      />
+      <ClientLoadingScreen />
       <Navbar />
       <main className="snap-container overflow-x-hidden w-full relative">
         <Hero />
