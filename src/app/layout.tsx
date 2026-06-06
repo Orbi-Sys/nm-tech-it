@@ -108,6 +108,12 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${inter.variable} ${syne.variable}`}>
       <head>
+        <link
+          rel="preload"
+          href="/logo.png"
+          as="image"
+          type="image/png"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

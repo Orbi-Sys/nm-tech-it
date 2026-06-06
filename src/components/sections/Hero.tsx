@@ -2,9 +2,14 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { AnimatedGrid } from "@/components/ui/AnimatedGrid";
-import { Particles } from "@/components/ui/Particles";
 import { Button } from "@/components/ui/Button";
+
+const Particles = dynamic(
+  () => import("@/components/ui/Particles").then((m) => ({ default: m.Particles })),
+  { ssr: false }
+);
 
 export function Hero() {
   return (
@@ -33,7 +38,8 @@ export function Hero() {
               width={320}
               height={320}
               priority
-              loading="eager"
+              fetchPriority="high"
+              sizes="(max-width: 768px) 200px, 320px"
               className="relative drop-shadow-[0_0_60px_rgba(212,166,111,0.2)] w-full h-full object-contain"
             />
           </div>

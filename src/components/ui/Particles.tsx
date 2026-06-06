@@ -13,9 +13,11 @@ export function Particles() {
     if (!ctx) return;
 
     let animationId: number;
+    let isVisible = !document.hidden;
     const particles: { x: number; y: number; vx: number; vy: number; size: number; opacity: number }[] = [];
     const isMobile = window.innerWidth < 768;
-    const count = isMobile ? 25 : 60;
+    const count = isMobile ? 20 : 40;
+    const CONNECTION_DIST = 100;
 
     const resize = () => {
       canvas.width = canvas.offsetWidth * window.devicePixelRatio;
@@ -40,6 +42,10 @@ export function Particles() {
     };
 
     const draw = () => {
+      if (!isVisible) {
+        animationId = requestAnimationFrame(draw);
+        return;
+      }
       const w = canvas.offsetWidth;
       const h = canvas.offsetHeight;
       ctx.clearRect(0, 0, w, h);
@@ -55,36 +61,41 @@ export function Particles() {
         ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
         ctx.fill();
 
-        particles.slice(i + 1).forEach((p2) => {
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
           const dx = p.x - p2.x;
+          if (Math.abs(dx) > CONNECTION_DIST) continue;
           const dy = p.y - p2.y;
+          if (Math.abs(dy) > CONNECTION_DIST) continue;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          if (dist < CONNECTION_DIST) {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(255, 255, 255, ${0.04 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.04 * (1 - dist / CONNECTION_DIST)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
-        });
+        }
       });
 
       animationId = requestAnimationFrame(draw);
     };
 
+    const handleResize = () => { resize(); init(); };
+    const handleVisibility = () => { isVisible = !document.hidden; };
+
     resize();
     init();
     draw();
 
-    window.addEventListener("resize", () => {
-      resize();
-      init();
-    });
+    window.addEventListener("resize", handleResize);
+    document.addEventListener("visibilitychange", handleVisibility);
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
 

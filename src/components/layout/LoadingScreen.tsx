@@ -25,8 +25,8 @@ export function LoadingScreen() {
     const timer = setTimeout(() => {
       sessionStorage.setItem("nm_visited", "1");
       setLoading(false);
-      setTimeout(hideVeil, 800);
-    }, 2200);
+      setTimeout(hideVeil, 400);
+    }, 1400);
 
     return () => clearTimeout(timer);
   }, []);
@@ -37,7 +37,7 @@ export function LoadingScreen() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-bg-deep"
         >
           <motion.div
