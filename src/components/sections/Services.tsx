@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { services } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TiltCard } from "@/components/ui/TiltCard";
@@ -26,26 +27,34 @@ export function Services() {
         >
           {services.map((service, i) => (
             <div key={service.title} data-reveal>
-              <TiltCard>
-                <motion.article
-                  whileHover={{ boxShadow: "0 0 40px rgba(212,166,111,0.12)" }}
-                  className="group relative h-full p-8 rounded-2xl glass glow-ring overflow-hidden transition-all duration-500 hover:border-gold/25"
-                >
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-gold/[0.05] rounded-full blur-2xl group-hover:bg-gold/[0.1] transition-all duration-500" />
-                  <div className="mb-6 p-3 w-fit rounded-xl bg-gold/5 border border-gold/15 group-hover:border-gold/30 transition-colors">
-                    <ServiceIcon name={service.icon} />
-                  </div>
-                  <h3 className="font-display text-xl font-semibold text-gold-bright mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-silver-dim text-sm leading-relaxed">
-                    {service.description}
-                  </p>
-                  <span className="absolute bottom-6 right-6 text-[10px] text-gold/20 font-mono">
-                    0{i + 1}
-                  </span>
-                </motion.article>
-              </TiltCard>
+              <Link href={service.href} className="block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 rounded-2xl">
+                <TiltCard className="h-full">
+                  <motion.article
+                    whileHover={{ boxShadow: "0 0 40px rgba(212,166,111,0.15)" }}
+                    className="group relative h-full p-8 rounded-2xl glass glow-ring overflow-hidden transition-all duration-500 hover:border-gold/30 cursor-pointer"
+                  >
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gold/[0.05] rounded-full blur-2xl group-hover:bg-gold/[0.12] transition-all duration-500" />
+                    <div className="mb-6 p-3 w-fit rounded-xl bg-gold/5 border border-gold/15 group-hover:border-gold/30 transition-colors">
+                      <ServiceIcon name={service.icon} />
+                    </div>
+                    <h3 className="font-display text-xl font-semibold text-gold-bright mb-3 group-hover:text-white transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-silver-dim text-sm leading-relaxed">
+                      {service.description}
+                    </p>
+                    <div className="flex items-center gap-1.5 mt-5 text-xs font-medium tracking-wide text-gold-dim group-hover:text-gold-bright transition-colors duration-300">
+                      Mehr erfahren
+                      <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                    <span className="absolute bottom-6 right-6 text-[10px] text-gold/20 font-mono">
+                      0{i + 1}
+                    </span>
+                  </motion.article>
+                </TiltCard>
+              </Link>
             </div>
           ))}
         </div>

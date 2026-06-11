@@ -88,7 +88,7 @@ export default function RootLayout({
     "@id": "https://nm-tech-it.de/#organization",
     "url": "https://nm-tech-it.de",
     "telephone": "+4915234801274",
-    "email": "info@nm-tech-it.de",
+    "email": "kontakt@nm-tech-it.de",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Heinrich-Böll-Straße 12",
@@ -98,8 +98,8 @@ export default function RootLayout({
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 52.7951,
-      "longitude": 7.8631
+      "latitude": 52.7944,
+      "longitude": 7.8925
     },
     "priceRange": "$$",
     "description": "Nikita Aleschkin – Software Engineer & Digitalisierungspartner aus Lastrup. Moderne Webseiten, KI-Integrationen und intelligente Automationen für Unternehmen."

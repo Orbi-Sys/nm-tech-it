@@ -3,14 +3,12 @@ import Link from "next/link";
 import { CircuitAccent } from "@/components/ui/CircuitAccent";
 
 const footerLinks = [
-  { label: "Über mich", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projekte", href: "#projects" },
-  { label: "Tech Stack", href: "#tech" },
-  { label: "Vorteile", href: "#why" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Prozess", href: "#process" },
-  { label: "Kontakt", href: "#contact" },
+  { label: "Über mich", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Projekte", href: "/#projects" },
+  { label: "Tech Stack", href: "/#tech" },
+  { label: "Prozess", href: "/#process" },
+  { label: "Kontakt", href: "/#contact" },
   { label: "Impressum", href: "/impressum" },
   { label: "Datenschutz", href: "/datenschutz" },
 ] as const;
@@ -25,7 +23,7 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start gap-4">
             <Link href="/" className="flex items-center gap-4">
               <div className="relative w-[80px] h-[80px] shrink-0">
-                <Image src="/logo.webp" alt="NM-TECH IT" width={80} height={80} priority unoptimized />
+                <Image src="/logo.png" alt="NM-TECH IT" width={80} height={80} priority unoptimized />
               </div>
               <div>
                 <span className="font-display text-lg font-bold tracking-wider metallic-text block">

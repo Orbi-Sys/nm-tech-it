@@ -51,7 +51,7 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
 
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
-  const smtpTo = process.env.SMTP_TO || "info@nm-tech-it.de";
+  const smtpTo = process.env.SMTP_TO || "kontakt@nm-tech-it.de";
   const smtpFrom = process.env.SMTP_FROM || "Kontakt@nm-tech-it.de";
 
   if (!smtpUser || !smtpPass) {
