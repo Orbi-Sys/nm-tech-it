@@ -3,12 +3,12 @@ import Link from "next/link";
 import { CircuitAccent } from "@/components/ui/CircuitAccent";
 
 const footerLinks = [
-  { label: "Über mich", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projekte", href: "#projects" },
-  { label: "Tech Stack", href: "#tech" },
-  { label: "Prozess", href: "#process" },
-  { label: "Kontakt", href: "#contact" },
+  { label: "Über mich", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Projekte", href: "/#projects" },
+  { label: "Tech Stack", href: "/#tech" },
+  { label: "Prozess", href: "/#process" },
+  { label: "Kontakt", href: "/#contact" },
   { label: "Impressum", href: "/impressum" },
   { label: "Datenschutz", href: "/datenschutz" },
 ] as const;

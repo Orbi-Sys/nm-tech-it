@@ -26,7 +26,7 @@ export function Navbar() {
       <nav className={`mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8 transition-all duration-500 ${
         scrolled ? "py-2" : "py-4"
       }`}>
-        <Link href="#" className="flex items-center gap-3 sm:gap-4 group">
+        <Link href="/" className="flex items-center gap-3 sm:gap-4 group">
           <div className={`relative shrink-0 transition-all duration-500 ${
             scrolled
               ? "w-[48px] h-[48px] md:w-[72px] md:h-[72px]"
@@ -62,7 +62,7 @@ export function Navbar() {
         </ul>
 
         <Link
-          href="#contact"
+          href="/#contact"
           className="hidden md:inline-flex text-xs font-medium tracking-widest uppercase px-5 py-2.5 rounded-lg border border-gold/25 text-gold-bright hover:bg-gold/15 hover:border-gold/50 transition-all duration-300"
         >
           Projekt starten
@@ -100,7 +100,7 @@ export function Navbar() {
             ))}
             <li className="pt-4 mt-2 border-t border-white/5">
               <Link
-                href="#contact"
+                href="/#contact"
                 onClick={() => setOpen(false)}
                 className="block w-full text-center text-xs font-medium tracking-widest uppercase py-3.5 px-5 rounded-lg border border-gold/25 text-gold-bright bg-gold/5 hover:bg-gold/15 transition-all duration-300"
               >
