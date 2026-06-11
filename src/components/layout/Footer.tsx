@@ -9,6 +9,7 @@ const footerLinks = [
   { label: "Tech Stack", href: "/#tech" },
   { label: "Prozess", href: "/#process" },
   { label: "Kontakt", href: "/#contact" },
+  { label: "FAQ", href: "/faq" },
   { label: "Impressum", href: "/impressum" },
   { label: "Datenschutz", href: "/datenschutz" },
 ] as const;

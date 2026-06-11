@@ -2,7 +2,7 @@ export const navLinks = [
   { label: "Über mich", href: "/#about" },
   { label: "Services", href: "/#services" },
   { label: "Projekte", href: "/#projects" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "FAQ", href: "/faq" },
   { label: "Tech Stack", href: "/#tech" },
   { label: "Prozess", href: "/#process" },
   { label: "Kontakt", href: "/#contact" },
@@ -17,14 +17,14 @@ export const services = [
     href: "/leistungen/webentwicklung",
   },
   {
-    title: "KI-Integrationen",
+    title: "KI-Integration",
     description:
       "Intelligente Chatbots, Assistenten und KI-Workflows, nahtlos in Ihre Geschäftsprozesse integriert.",
     icon: "brain",
     href: "/leistungen/ki-integrationen",
   },
   {
-    title: "Automationen",
+    title: "Prozess-Automatisierung",
     description:
       "Automatisierte Workflows mit n8n und Custom Scripts – weniger manuelle Arbeit, mehr Effizienz.",
     icon: "workflow",
