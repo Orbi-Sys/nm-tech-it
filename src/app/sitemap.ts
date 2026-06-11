@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: baseUrl,
-      lastModified: new Date("2026-06-07"),
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1.0,
     },
@@ -33,13 +33,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/datenschutz`,
-      lastModified: new Date("2025-01-01"),
+      lastModified: new Date("2026-05-30"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${baseUrl}/impressum`,
-      lastModified: new Date("2025-01-01"),
+      lastModified: new Date("2026-05-30"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
