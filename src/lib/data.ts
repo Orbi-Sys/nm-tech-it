@@ -470,37 +470,37 @@ Individuelle Software steht selten für sich allein. Häufig fließen andere Lei
 
 export const projects = [
   {
-    title: "AI-gestütztes HubSpot Sales Dashboard",
+    title: "Dashboard mit KI-Auswertung",
     category: "KI / Dashboard",
     description:
-      "Echtzeit-Analyse von Leads und Deals via Webhooks mit n8n. KI-gestützte Deal-Bewertung mit Abschlusswahrscheinlichkeit, Risikoerkennung und Handlungsempfehlungen.",
+      "Ein Dashboard, das Leads und Verkaufszahlen aus einem CRM in Echtzeit zusammenführt und per KI bewertet – inklusive Einschätzung zur Abschlusswahrscheinlichkeit und Hinweisen, welche Vorgänge Aufmerksamkeit brauchen.",
     gradient: "from-zinc-800 via-zinc-900 to-black",
     accentColor: "border-indigo-500/30 text-indigo-300 bg-indigo-950/50",
     accent: "KI",
   },
   {
-    title: "Automatisierte Spesenabrechnung & Excel-Verarbeitung",
+    title: "Automatisierte Datenverarbeitung",
     category: "Automation",
     description:
-      "Workflow zur automatischen Verarbeitung von 600–800 CSV-Datensätzen aus Google Drive mit JavaScript-Filterlogik und Übertragung in Microsoft Excel. Zeitersparnis: ca. 4 Stunden pro Durchlauf.",
+      "Ein Workflow, der große Mengen an Datensätzen automatisch einliest, filtert und in eine strukturierte Tabelle überträgt. Solche Abläufe ersetzen schnell mehrere Stunden manueller Arbeit pro Durchlauf.",
     gradient: "from-zinc-800 via-zinc-900 to-black",
     accentColor: "border-emerald-500/30 text-emerald-300 bg-emerald-950/50",
     accent: "AUTOMATION",
   },
   {
-    title: "Automatisierte PDF-Erstellung mit KI-Agenten",
+    title: "Automatische Dokumentenerstellung",
     category: "KI / Automation",
     description:
-      "KI-gestützter Workflow zur automatischen Erstellung mehrseitiger Dokumente aus HTML-Daten. Zeitersparnis: ca. 1 Stunde pro Vorgang.",
+      "Ein Workflow, der aus vorhandenen Daten automatisch fertige, mehrseitige PDF-Dokumente erzeugt – ohne manuelles Zusammenkopieren, jederzeit in gleichbleibender Qualität.",
     gradient: "from-zinc-800 via-zinc-900 to-black",
     accentColor: "border-violet-500/30 text-violet-300 bg-violet-950/50",
     accent: "KI",
   },
   {
-    title: "KI-gestützte Bewerberanalyse & Recruitee-Integration",
+    title: "KI-gestützte Vorauswertung von Unterlagen",
     category: "KI",
     description:
-      "Automatisierte Analyse von Bewerberunterlagen (PDF, Word, gescannte Dokumente) mit strukturierter Positiv-/Negativbewertung und automatischer Benachrichtigung bei geeigneten Kandidaten.",
+      "Eine Lösung, die eingehende Dokumente wie Bewerbungen automatisch erfasst, aufbereitet und strukturiert zusammenfasst – als Entscheidungsgrundlage, während die endgültige Bewertung beim Menschen bleibt.",
     gradient: "from-zinc-800 via-zinc-900 to-black",
     accentColor: "border-amber-500/30 text-amber-300 bg-amber-950/50",
     accent: "RECRUIT",

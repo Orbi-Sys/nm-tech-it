@@ -12,9 +12,9 @@ export function Projects() {
     <section id="projects" className="relative py-28 md:py-36 snap-section overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
-          label="Portfolio"
-          title="Ausgewählte Projekte"
-          description="Premium digitale Lösungen – von KI-Systemen bis zu vollautomatisierten Business-Plattformen."
+          label="Beispiele"
+          title="Anwendungsbeispiele"
+          description="Beispiele dafür, was sich mit moderner Webtechnik, Automatisierung und KI umsetzen lässt – von der Datenanalyse bis zum automatisierten Dokument."
         />
 
         <div ref={gridRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
