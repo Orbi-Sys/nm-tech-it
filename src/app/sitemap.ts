@@ -1,40 +1,46 @@
 import { MetadataRoute } from "next";
-import { services } from "@/lib/data";
+
+const leistungSlugs = [
+  "webentwicklung",
+  "ki-integrationen",
+  "ki-automatisierung",
+  "api-anbindungen",
+  "dashboards",
+  "individuelle-softwareloesungen",
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://nm-tech-it.de";
 
-  const serviceUrls: MetadataRoute.Sitemap = services.map((s) => ({
-    url: `${baseUrl}/leistungen/${s.slug}`,
-    lastModified: new Date("2026-06-23"),
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
-
   return [
     {
       url: baseUrl,
-      lastModified: new Date("2026-06-23"),
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1.0,
     },
+    ...leistungSlugs.map((slug) => ({
+      url: `${baseUrl}/leistungen/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
     {
       url: `${baseUrl}/faq`,
-      lastModified: new Date("2026-06-23"),
-      changeFrequency: "monthly",
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
       priority: 0.7,
     },
-    ...serviceUrls,
     {
       url: `${baseUrl}/datenschutz`,
-      lastModified: new Date("2025-01-01"),
-      changeFrequency: "yearly",
+      lastModified: new Date("2026-05-30"),
+      changeFrequency: "yearly" as const,
       priority: 0.3,
     },
     {
       url: `${baseUrl}/impressum`,
-      lastModified: new Date("2025-01-01"),
-      changeFrequency: "yearly",
+      lastModified: new Date("2026-05-30"),
+      changeFrequency: "yearly" as const,
       priority: 0.3,
     },
   ];

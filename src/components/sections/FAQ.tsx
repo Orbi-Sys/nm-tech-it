@@ -6,9 +6,12 @@ import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { faqCategories } from "@/lib/data";
 
-export function FAQ() {
+type Props = { preview?: boolean };
+
+export function FAQ({ preview = false }: Props) {
   const [activeCategory, setActiveCategory] = useState(0);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const visibleCategories = preview ? [faqCategories[0]] : faqCategories;
 
   const handleCategoryChange = (index: number) => {
     setActiveCategory(index);
@@ -27,7 +30,7 @@ export function FAQ() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Mobile Category Tabs (Wrap Grid) */}
           <div className="flex lg:hidden flex-wrap gap-2 mb-4">
-            {faqCategories.map((category, idx) => {
+            {visibleCategories.map((category, idx) => {
               const isActive = activeCategory === idx;
               return (
                 <button
@@ -47,7 +50,7 @@ export function FAQ() {
 
           {/* Desktop Category Tabs Sidebar (Left) */}
           <div className="hidden lg:flex lg:col-span-4 flex-col gap-3 p-2 rounded-3xl border border-gold/10 bg-gold/[0.01]">
-            {faqCategories.map((category, idx) => {
+            {visibleCategories.map((category, idx) => {
               const isActive = activeCategory === idx;
               return (
                 <button
@@ -117,7 +120,7 @@ export function FAQ() {
                 transition={{ duration: 0.35, ease: "easeInOut" }}
                 className="space-y-4"
               >
-                {faqCategories[activeCategory].faqs.map((faq, faqIndex) => {
+                {visibleCategories[activeCategory].faqs.map((faq, faqIndex) => {
                   const isOpen = openIndex === faqIndex;
                   return (
                     <div
@@ -182,6 +185,20 @@ export function FAQ() {
             </AnimatePresence>
           </div>
         </div>
+
+        {preview && (
+          <div className="mt-12 text-center">
+            <Link
+              href="/faq"
+              className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-medium tracking-wide uppercase rounded-lg bg-gold/20 text-gold-bright border border-gold/40 hover:bg-gold/30 hover:border-gold/60 transition-all duration-300"
+            >
+              Alle Fragen ansehen
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </Link>
+          </div>
+        )}
 
       </div>
     </section>
