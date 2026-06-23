@@ -20,6 +20,7 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nm-tech-it.de"),
   title: "NM-TECH IT – Software Engineer & Digitalisierungspartner",
   description:
     "Nikita Aleschkin – Software Engineer & Digitalisierungspartner aus Lastrup. Moderne Webseiten, KI-Integrationen und intelligente Automationen für Unternehmen.",

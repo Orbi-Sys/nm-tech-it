@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { services } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TiltCard } from "@/components/ui/TiltCard";
@@ -38,9 +39,18 @@ export function Services() {
                   <h3 className="font-display text-xl font-semibold text-gold-bright mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-silver-dim text-sm leading-relaxed">
+                  <p className="text-silver-dim text-sm leading-relaxed mb-6">
                     {service.description}
                   </p>
+                  <Link
+                    href={`/leistungen/${service.slug}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-medium tracking-wider uppercase text-gold-dim hover:text-gold-bright transition-colors duration-300"
+                  >
+                    Mehr erfahren
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3.5 h-3.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </Link>
                   <span className="absolute bottom-6 right-6 text-[10px] text-gold/20 font-mono">
                     0{i + 1}
                   </span>

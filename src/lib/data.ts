@@ -12,36 +12,42 @@ export const navLinks = [
 export const services = [
   {
     title: "Webentwicklung",
+    slug: "webentwicklung",
     description:
       "Hochperformante, moderne Websites und Web-Apps mit Next.js – schnell, skalierbar und zukunftssicher.",
     icon: "code",
   },
   {
     title: "KI-Integrationen",
+    slug: "ki-integrationen",
     description:
       "Intelligente Chatbots, Assistenten und KI-Workflows, nahtlos in Ihre Geschäftsprozesse integriert.",
     icon: "brain",
   },
   {
     title: "Automationen",
+    slug: "ki-automatisierung",
     description:
       "Automatisierte Workflows mit n8n und Custom Scripts – weniger manuelle Arbeit, mehr Effizienz.",
     icon: "workflow",
   },
   {
     title: "API-Anbindungen",
+    slug: "api-anbindungen",
     description:
       "Sichere Verbindungen zwischen Systemen, Drittanbieter-Services und internen Plattformen.",
     icon: "api",
   },
   {
     title: "Dashboards",
+    slug: "dashboards",
     description:
       "Echtzeit-Dashboards und Analytics-Oberflächen für datengetriebene Entscheidungen.",
     icon: "chart",
   },
   {
     title: "Individuelle Softwarelösungen",
+    slug: "individuelle-softwareloesungen",
     description:
       "Maßgeschneiderte Software exakt auf Ihre Anforderungen – von MVP bis Enterprise.",
     icon: "cube",
@@ -313,5 +319,140 @@ export const processSteps = [
     step: "04",
     title: "Launch",
     description: "Deployment, Monitoring und kontinuierliche Optimierung.",
+  },
+] as const;
+
+export const serviceDetails = [
+  {
+    slug: "webentwicklung",
+    metaTitle: "Webentwicklung mit Next.js – Moderne Webseiten | NM-TECH IT",
+    metaDescription:
+      "Professionelle Webentwicklung mit Next.js und React. Hochperformante, SEO-optimierte und DSGVO-konforme Webseiten für Ihr Unternehmen aus Lastrup. Jetzt kostenlos beraten lassen.",
+    longParagraphs: [
+      "Ihre Website ist oft der erste Kontaktpunkt zwischen Ihrem Unternehmen und potenziellen Kunden. Eine professionell entwickelte Webpräsenz schafft Vertrauen, überzeugt auf den ersten Blick und wird von Google zuverlässig gefunden. Ich entwickle moderne Websites und Web-Apps mit Next.js – dem leistungsstärksten React-Framework für professionelle Webentwicklung.",
+      "Next.js ermöglicht Server-Side Rendering, statische Seitengenerierung und optimale Core Web Vitals – alles Faktoren, die Google direkt bei der Bewertung Ihrer Seite berücksichtigt. Das Ergebnis: Ihre Website lädt schnell, rankt besser und bietet Ihren Besuchern ein erstklassiges Nutzungserlebnis auf jedem Gerät.",
+      "Der gesamte Entwicklungsprozess – von der ersten Konzeptidee über das Design bis zum Launch – läuft transparent und strukturiert ab. Sie erhalten regelmäßige Updates, Zugang zur Testumgebung und einen direkten Ansprechpartner. Nach dem Launch begleite ich Sie auf Wunsch langfristig mit Wartung und Weiterentwicklung.",
+    ],
+    highlights: [
+      "Blitzschnelle Ladezeiten durch Next.js SSR & SSG",
+      "SEO-optimierte Struktur & Metadaten von Anfang an",
+      "Mobile-First: Perfekt auf Smartphone, Tablet & Desktop",
+      "DSGVO-konformes Hosting & Implementierung",
+      "TypeScript für robuste, wartungsfreundliche Codequalität",
+      "Moderne Animationen & Premium User Experience",
+      "Tailwind CSS für konsistentes, schnelles Styling",
+      "Deployment auf Vercel, Netlify oder eigenem Server",
+    ],
+    faqCategoryKey: "Webentwicklung",
+  },
+  {
+    slug: "ki-integrationen",
+    metaTitle: "KI-Integrationen für Unternehmen – ChatGPT & Claude APIs | NM-TECH IT",
+    metaDescription:
+      "Intelligente KI-Systeme in Ihr Unternehmen integrieren: Chatbots, KI-Agenten, Dokumentenanalyse und mehr. Mit OpenAI GPT-4 und Anthropic Claude. Jetzt kostenlos beraten lassen.",
+    longParagraphs: [
+      "Künstliche Intelligenz ist kein Zukunftsthema mehr – sie ist heute für Unternehmen jeder Größe zugänglich und bietet enormes Effizienzpotenzial. Ich helfe Ihnen dabei, KI-Technologien konkret und sinnvoll in Ihre Geschäftsprozesse zu integrieren: von der einfachen Chatbot-Lösung bis hin zu komplexen KI-Agenten, die eigenständig Aufgaben übernehmen.",
+      "Dabei arbeite ich mit den leistungsstärksten verfügbaren Sprachmodellen: OpenAI GPT-4o, Anthropic Claude und Open-Source-Alternativen wie Mistral oder LLaMA für datensensible Anwendungen. Durch RAG-Systeme (Retrieval-Augmented Generation) kann die KI mit Ihren eigenen Dokumenten, Produktdaten oder internen Wissensquellen arbeiten – ohne dass Ihre Daten in externe Modelle fließen müssen.",
+      "Der Unterschied zu Standard-Lösungen: Eine maßgeschneiderte KI-Integration spricht die Sprache Ihrer Kunden, kennt Ihre Produkte und passt sich an Ihre bestehenden Systeme an. Das Ergebnis ist keine generische KI – sondern ein verlässlicher digitaler Mitarbeiter, der rund um die Uhr verfügbar ist.",
+    ],
+    highlights: [
+      "Chatbots & KI-Assistenten für Website und internen Einsatz",
+      "Dokumentenanalyse: PDFs, Word-Dateien, gescannte Dokumente",
+      "RAG-Systeme mit eigenen Unternehmensdaten & Wissensdatenbanken",
+      "Integration von OpenAI GPT-4o und Anthropic Claude",
+      "KI-Agenten, die eigenständig Aufgaben ausführen",
+      "Datenschutzkonforme Implementierung nach DSGVO",
+      "On-Premise-Optionen mit Open-Source-Modellen",
+      "Anbindung an CRM, Helpdesk und bestehende Systeme",
+    ],
+    faqCategoryKey: "Künstliche Intelligenz",
+  },
+  {
+    slug: "ki-automatisierung",
+    metaTitle: "Workflow-Automation & KI-Automatisierung mit n8n | NM-TECH IT",
+    metaDescription:
+      "Automatisieren Sie repetitive Geschäftsprozesse mit n8n und KI-Agenten. Verbinden Sie CRM, E-Mail, Buchhaltung und mehr – Zeiteinsparung von bis zu 4 Stunden pro Durchlauf.",
+    longParagraphs: [
+      "Repetitive manuelle Aufgaben binden wertvolle Zeit und sind fehleranfällig. Ob E-Mails manuell verarbeiten, Daten zwischen Systemen übertragen oder Berichte erstellen – all das lässt sich automatisieren. Ich entwickle Workflows mit n8n, Make und Python-Skripten, die Ihre Prozesse zuverlässig und ohne Ihr Zutun erledigen.",
+      "n8n ist dabei mein bevorzugtes Automatisierungswerkzeug: Es ist leistungsstärker als Zapier oder Make, kann selbst gehostet werden und bietet volle Kontrolle über Ihre Daten und Prozesse. Ein Workflow kann hunderte von Schritten umfassen, externe APIs ansprechen, KI-gestützte Entscheidungslogik beinhalten und bei Fehlern automatisch Alarm schlagen.",
+      "Ein konkretes Beispiel aus meiner Praxis: Eine automatisierte Spesenabrechnung verarbeitet 600–800 CSV-Datensätze aus Google Drive, filtert und transformiert die Daten und überträgt sie direkt in Microsoft Excel – vollautomatisch. Zeitersparnis: ca. 4 Stunden pro Durchlauf. Das ist keine Theorie, sondern gelebte Praxis bei meinen Kunden.",
+    ],
+    highlights: [
+      "n8n Workflow-Automation – flexibel und self-hosted",
+      "Verbindung von CRM, E-Mail, Buchhaltung & mehr",
+      "KI-gestützte Entscheidungslogik innerhalb von Workflows",
+      "CSV-, Excel- und Datenverarbeitung automatisiert",
+      "Error-Handling & automatische Fehlerbenachrichtigung",
+      "Mehr Flexibilität als Zapier oder Make",
+      "Python-Skripte für individuelle Anforderungen",
+      "Anbindung an Google Drive, SharePoint, HubSpot & mehr",
+    ],
+    faqCategoryKey: "Automationen & Workflows",
+  },
+  {
+    slug: "api-anbindungen",
+    metaTitle: "API-Anbindungen & Systemintegration – Maßgeschneidert | NM-TECH IT",
+    metaDescription:
+      "Verbinden Sie Ihre Software-Systeme mit professionellen API-Anbindungen. CRM, ERP, Shopsysteme, Microsoft 365 und mehr – sicher, schnell und zuverlässig integriert.",
+    longParagraphs: [
+      "Moderne Unternehmen nutzen eine Vielzahl von Software-Lösungen: ein CRM für Kundendaten, ein ERP für die Buchhaltung, ein Shopsystem für den Vertrieb und vielleicht noch dutzende weitere Tools. Das Problem: Diese Systeme sprechen oft nicht miteinander. Manuelle Übertragungen, doppelte Datenpflege und Informationsverluste sind die Folge.",
+      "API-Anbindungen lösen dieses Problem elegant: Sie verbinden Ihre bestehenden Systeme so, dass Daten automatisch und in Echtzeit zwischen ihnen fließen. Ob REST-API, GraphQL, Webhooks oder ältere SOAP-Schnittstellen – ich entwickle die Brücke zwischen Ihren Systemen, passgenau auf Ihre Anforderungen.",
+      "Auch wenn ein System keine offizielle API bietet, gibt es Wege: dateibasierte Integration über CSV/XML, direkte Datenbankzugriffe oder spezialisierte Adapter. Kein System ist zu alt, keine Anforderung zu speziell. Ich analysiere Ihre Systemlandschaft und empfehle den optimalen Integrationsweg.",
+    ],
+    highlights: [
+      "REST-API und GraphQL-Integration",
+      "Webhook-basierte Echtzeit-Synchronisation",
+      "HubSpot, Salesforce, Microsoft 365, SAP-Anbindungen",
+      "Google Workspace & SharePoint Integration",
+      "Sicherer Datenaustausch mit OAuth 2.0 & API-Keys",
+      "Legacy-Systeme ohne API via Datei-Import/Export",
+      "Custom API-Entwicklung für eigene Services",
+      "Monitoring & Fehlerbehandlung für alle Integrationen",
+    ],
+    faqCategoryKey: "Automationen & Workflows",
+  },
+  {
+    slug: "dashboards",
+    metaTitle: "Individuelle Business-Dashboards & Echtzeit-Analytics | NM-TECH IT",
+    metaDescription:
+      "Maßgeschneiderte Dashboards für Echtzeit-Analysen: Vertrieb, HR, Finanzen und mehr auf einen Blick. KI-gestützte Auswertungen für datengetriebene Entscheidungen.",
+    longParagraphs: [
+      "Daten sind das Fundament guter Entscheidungen – aber nur, wenn sie zugänglich, verständlich und aktuell sind. Standard-Tools wie Excel oder generische BI-Software stoßen schnell an ihre Grenzen, wenn individuelle KPIs, spezifische Datenquellen oder besondere Anforderungen ins Spiel kommen.",
+      "Ich entwickle maßgeschneiderte Dashboards, die genau die Kennzahlen anzeigen, die für Ihr Unternehmen relevant sind: Umsatz, Leads, Automatisierungsfortschritt, Lagerbestände, Mitarbeiterauslastung – alles in Echtzeit und in einer übersichtlichen Oberfläche. Die Daten werden direkt aus Ihren bestehenden Systemen gezogen.",
+      "Ein Beispiel aus der Praxis: Ein KI-gestütztes HubSpot Sales Dashboard analysiert Leads und Deals in Echtzeit via Webhooks, bewertet Abschlusswahrscheinlichkeiten und gibt gezielte Handlungsempfehlungen. Das Ergebnis: Der Vertrieb fokussiert sich auf die richtigen Deals zur richtigen Zeit.",
+    ],
+    highlights: [
+      "Echtzeit-Datenvisualisierung aus mehreren Quellen",
+      "KI-gestützte Analyse & Prognosen",
+      "Integration mit CRM, ERP, Google Analytics & Co.",
+      "Rollenbasierte Zugriffsrechte & Multi-User-Support",
+      "Mobile-optimierte Benutzeroberfläche",
+      "Export-Funktionen für Berichte und Präsentationen",
+      "Supabase & PostgreSQL für skalierbare Datenhaltung",
+      "Automatisierte Benachrichtigungen bei Schwellenwerten",
+    ],
+    faqCategoryKey: "Allgemein & Einstieg",
+  },
+  {
+    slug: "individuelle-softwareloesungen",
+    metaTitle: "Individuelle Softwareentwicklung – Von MVP bis Enterprise | NM-TECH IT",
+    metaDescription:
+      "Maßgeschneiderte Software für Ihr Unternehmen: Kundenportale, SaaS-Plattformen, Web-Apps und mehr. Agile Entwicklung mit transparenten Meilensteinen – für KMU und Start-ups.",
+    longParagraphs: [
+      "Manchmal passt keine Standardlösung – sei es, weil Ihre Anforderungen zu spezifisch sind, bestehende Tools zu teuer werden oder ein vollkommen neues Produkt entstehen soll. Für genau diese Fälle entwickle ich individuelle Softwarelösungen: von der ersten Idee über den Prototyp bis hin zur fertigen, produktionsreifen Anwendung.",
+      "Der Entwicklungsprozess läuft agil und transparent ab: In kurzen Sprints entsteht schrittweise ein lauffähiges System. Sie sehen nach jeder Iteration den Fortschritt, geben Feedback und behalten die volle Kontrolle über Richtung und Umfang. Überraschungen bei Kosten und Zeit soll es nicht geben – klare Meilensteine sind Standard.",
+      "Ob Sie ein SaaS-Produkt aufbauen, ein internes Verwaltungstool benötigen, ein Kundenportal mit Login-Bereich planen oder eine komplexe Web-App mit KI-Anbindung realisieren möchten: Ich bringe die technische Expertise mit und begleite Sie von der Idee bis zum erfolgreichen Launch.",
+    ],
+    highlights: [
+      "Von der Idee bis zum Launch – ein Ansprechpartner",
+      "Agile Entwicklung in 2-Wochen-Sprints",
+      "SaaS-Plattformen & Multi-Tenant-Architekturen",
+      "Kundenportale mit Login & Berechtigungssystem",
+      "MVP-Entwicklung für schnellen Markteinstieg",
+      "Nahtlose Integration in bestehende IT-Infrastruktur",
+      "TypeScript & Clean Code für langfristige Wartbarkeit",
+      "KI- und Automatisierungsmodule auf Wunsch integriert",
+    ],
+    faqCategoryKey: "Allgemein & Einstieg",
   },
 ] as const;
