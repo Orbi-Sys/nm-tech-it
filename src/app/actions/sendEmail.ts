@@ -1,6 +1,11 @@
 "use server";
 import nodemailer from "nodemailer";
 import { headers } from "next/headers";
+import {
+  CONFIRMATION_HTML,
+  CONFIRMATION_SUBJECT,
+  CONFIRMATION_TEXT,
+} from "@/lib/confirmationEmail";
 
 export type FormState = {
   success: boolean;
@@ -52,6 +57,25 @@ function isRateLimited(ip: string): boolean {
     }
   }
   return false;
+}
+
+// Bestätigungsmails: höchstens eine pro Empfängeradresse in diesem Zeitraum.
+const CONFIRM_WINDOW_MS = 24 * 60 * 60 * 1000;
+const confirmedRecipients = new Map<string, number>();
+
+function mayConfirm(email: string): boolean {
+  const now = Date.now();
+  const key = email.toLowerCase();
+  const last = confirmedRecipients.get(key);
+  if (last && now - last < CONFIRM_WINDOW_MS) return false;
+  confirmedRecipients.set(key, now);
+
+  if (confirmedRecipients.size > 5000) {
+    for (const [k, t] of confirmedRecipients) {
+      if (now - t >= CONFIRM_WINDOW_MS) confirmedRecipients.delete(k);
+    }
+  }
+  return true;
 }
 
 function escapeHtml(str: string): string {
@@ -201,9 +225,7 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
       },
     });
 
-    // Es wird ausschließlich an die fest hinterlegte Adresse (SMTP_TO) gesendet.
-    // Bewusst KEINE Bestätigungsmail an die eingegebene Adresse: darüber konnten
-    // Bots beliebige Empfänger mit eigenem Text über diesen SMTP anschreiben.
+    // Anfrage an die fest hinterlegte Adresse (SMTP_TO).
     await transporter.sendMail({
       from: { name: "NM-TECH IT Kontaktformular", address: smtpFrom },
       replyTo: { name, address: email },
@@ -222,6 +244,24 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
         </div>
       `,
     });
+
+    // Bestätigung an den Absender – nur wenn das Captcha aktiv ist (die Anfrage
+    // hat es oben bereits bestanden), mit festem Text und max. 1x pro Adresse/Tag.
+    if (process.env.TURNSTILE_SECRET_KEY && mayConfirm(email)) {
+      try {
+        await transporter.sendMail({
+          from: { name: "NM-TECH IT", address: smtpFrom },
+          replyTo: smtpTo,
+          to: email,
+          subject: CONFIRMATION_SUBJECT,
+          text: CONFIRMATION_TEXT,
+          html: CONFIRMATION_HTML,
+        });
+      } catch (error) {
+        // Die Anfrage selbst ist angekommen – ein Fehler hier soll den Nutzer nicht verunsichern.
+        console.error("SMTP Error (Bestätigung):", error);
+      }
+    }
 
     return GENERIC_SUCCESS;
   } catch (error) {
