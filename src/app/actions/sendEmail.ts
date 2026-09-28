@@ -1,6 +1,11 @@
 "use server";
 import nodemailer from "nodemailer";
 import { headers } from "next/headers";
+import {
+  CONFIRMATION_HTML,
+  CONFIRMATION_SUBJECT,
+  CONFIRMATION_TEXT,
+} from "@/lib/confirmationEmail";
 
 export type FormState = {
   success: boolean;
@@ -72,28 +77,6 @@ function mayConfirm(email: string): boolean {
   }
   return true;
 }
-
-// Fester Text ohne jegliche Nutzereingabe: Bots können darüber keine eigenen
-// Inhalte an fremde Adressen verschicken.
-const CONFIRMATION_TEXT = `Guten Tag,
-
-vielen Dank für Ihre Anfrage über nm-tech-it.de. Ihre Nachricht ist bei mir eingegangen und ich melde mich zeitnah bei Ihnen.
-
-Mit freundlichen Grüßen
-Nikita Aleschkin
-NM-TECH IT
-
-Sie haben keine Anfrage gestellt? Dann hat jemand Ihre Adresse im Kontaktformular eingetragen. Sie können diese E-Mail einfach ignorieren.`;
-
-const CONFIRMATION_HTML = `
-  <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
-    <h2 style="color: #333; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;">Vielen Dank für Ihre Anfrage!</h2>
-    <p>Guten Tag,</p>
-    <p>vielen Dank für Ihre Anfrage über nm-tech-it.de. Ihre Nachricht ist bei mir eingegangen und ich melde mich zeitnah bei Ihnen.</p>
-    <p style="margin-top: 20px;">Mit freundlichen Grüßen<br><strong>Nikita Aleschkin</strong><br>NM-TECH IT</p>
-    <p style="margin-top: 30px; color: #999; font-size: 12px;">Sie haben keine Anfrage gestellt? Dann hat jemand Ihre Adresse im Kontaktformular eingetragen. Sie können diese E-Mail einfach ignorieren.</p>
-  </div>
-`;
 
 function escapeHtml(str: string): string {
   return str
@@ -270,7 +253,7 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
           from: { name: "NM-TECH IT", address: smtpFrom },
           replyTo: smtpTo,
           to: email,
-          subject: "Ihre Anfrage bei NM-TECH IT – Eingangsbestätigung",
+          subject: CONFIRMATION_SUBJECT,
           text: CONFIRMATION_TEXT,
           html: CONFIRMATION_HTML,
         });
