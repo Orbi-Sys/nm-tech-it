@@ -54,6 +54,47 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
+// Bestätigungsmails: höchstens eine pro Empfängeradresse in diesem Zeitraum.
+const CONFIRM_WINDOW_MS = 24 * 60 * 60 * 1000;
+const confirmedRecipients = new Map<string, number>();
+
+function mayConfirm(email: string): boolean {
+  const now = Date.now();
+  const key = email.toLowerCase();
+  const last = confirmedRecipients.get(key);
+  if (last && now - last < CONFIRM_WINDOW_MS) return false;
+  confirmedRecipients.set(key, now);
+
+  if (confirmedRecipients.size > 5000) {
+    for (const [k, t] of confirmedRecipients) {
+      if (now - t >= CONFIRM_WINDOW_MS) confirmedRecipients.delete(k);
+    }
+  }
+  return true;
+}
+
+// Fester Text ohne jegliche Nutzereingabe: Bots können darüber keine eigenen
+// Inhalte an fremde Adressen verschicken.
+const CONFIRMATION_TEXT = `Guten Tag,
+
+vielen Dank für Ihre Anfrage über nm-tech-it.de. Ihre Nachricht ist bei mir eingegangen und ich melde mich zeitnah bei Ihnen.
+
+Mit freundlichen Grüßen
+Nikita Aleschkin
+NM-TECH IT
+
+Sie haben keine Anfrage gestellt? Dann hat jemand Ihre Adresse im Kontaktformular eingetragen. Sie können diese E-Mail einfach ignorieren.`;
+
+const CONFIRMATION_HTML = `
+  <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
+    <h2 style="color: #333; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;">Vielen Dank für Ihre Anfrage!</h2>
+    <p>Guten Tag,</p>
+    <p>vielen Dank für Ihre Anfrage über nm-tech-it.de. Ihre Nachricht ist bei mir eingegangen und ich melde mich zeitnah bei Ihnen.</p>
+    <p style="margin-top: 20px;">Mit freundlichen Grüßen<br><strong>Nikita Aleschkin</strong><br>NM-TECH IT</p>
+    <p style="margin-top: 30px; color: #999; font-size: 12px;">Sie haben keine Anfrage gestellt? Dann hat jemand Ihre Adresse im Kontaktformular eingetragen. Sie können diese E-Mail einfach ignorieren.</p>
+  </div>
+`;
+
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, "&amp;")
@@ -201,9 +242,7 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
       },
     });
 
-    // Es wird ausschließlich an die fest hinterlegte Adresse (SMTP_TO) gesendet.
-    // Bewusst KEINE Bestätigungsmail an die eingegebene Adresse: darüber konnten
-    // Bots beliebige Empfänger mit eigenem Text über diesen SMTP anschreiben.
+    // Anfrage an die fest hinterlegte Adresse (SMTP_TO).
     await transporter.sendMail({
       from: { name: "NM-TECH IT Kontaktformular", address: smtpFrom },
       replyTo: { name, address: email },
@@ -222,6 +261,24 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
         </div>
       `,
     });
+
+    // Bestätigung an den Absender – nur wenn das Captcha aktiv ist (die Anfrage
+    // hat es oben bereits bestanden), mit festem Text und max. 1x pro Adresse/Tag.
+    if (process.env.TURNSTILE_SECRET_KEY && mayConfirm(email)) {
+      try {
+        await transporter.sendMail({
+          from: { name: "NM-TECH IT", address: smtpFrom },
+          replyTo: smtpTo,
+          to: email,
+          subject: "Ihre Anfrage bei NM-TECH IT – Eingangsbestätigung",
+          text: CONFIRMATION_TEXT,
+          html: CONFIRMATION_HTML,
+        });
+      } catch (error) {
+        // Die Anfrage selbst ist angekommen – ein Fehler hier soll den Nutzer nicht verunsichern.
+        console.error("SMTP Error (Bestätigung):", error);
+      }
+    }
 
     return GENERIC_SUCCESS;
   } catch (error) {
