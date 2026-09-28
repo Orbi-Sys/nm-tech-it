@@ -57,6 +57,13 @@ export default function DatenschutzPage() {
                 <br />
                 Für die Buchung von Erstgesprächen nutze ich den Dienst Calendly (Calendly LLC, 271 17th St NW, Atlanta, GA, USA). Wenn Sie über das Buchungsformular einen Termin vereinbaren, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, ggf. weitere Angaben) an Calendly übermittelt und dort verarbeitet. Calendly kann Daten in die USA übertragen. Die Nutzung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung). Weitere Informationen finden Sie in der Datenschutzerklärung von Calendly unter <a href="https://calendly.com/privacy" target="_blank" rel="noreferrer noopener" className="text-silver-bright hover:text-white">calendly.com/privacy</a>.
               </p>
+              {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
+                <p>
+                  <strong className="text-silver-bright">Spamschutz via Cloudflare Turnstile</strong>
+                  <br />
+                  Zum Schutz des Kontaktformulars vor Missbrauch durch automatisierte Programme (Bots) nutze ich den Dienst Cloudflare Turnstile (Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA). Dabei werden beim Laden des Formulars technische Daten wie Ihre IP-Adresse, Browser- und Geräteinformationen an Cloudflare übermittelt, um zu prüfen, ob die Eingabe von einem Menschen stammt. Cloudflare kann Daten in die USA übertragen; Cloudflare ist nach dem EU-US Data Privacy Framework zertifiziert. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO; mein berechtigtes Interesse liegt im Schutz meiner Website und meines E-Mail-Versands vor Missbrauch. Weitere Informationen finden Sie unter <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noreferrer noopener" className="text-silver-bright hover:text-white">cloudflare.com/privacypolicy</a>.
+                </p>
+              )}
               <p>
                 Für Fragen zum Datenschutz können Sie sich jederzeit an mich wenden. Diese Datenschutzerklärung gilt ausschließlich für diese Website und nicht für verlinkte fremde Angebote.
               </p>
