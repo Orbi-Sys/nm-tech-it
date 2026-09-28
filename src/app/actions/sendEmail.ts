@@ -2,20 +2,57 @@
 import nodemailer from "nodemailer";
 import { headers } from "next/headers";
 
-const rateLimitMap = new Map<string, number>();
-const RATE_LIMIT_MS = 60_000;
-
-function isRateLimited(ip: string): boolean {
-  const last = rateLimitMap.get(ip);
-  if (last && Date.now() - last < RATE_LIMIT_MS) return true;
-  rateLimitMap.set(ip, Date.now());
-  return false;
-}
-
 export type FormState = {
   success: boolean;
   message: string;
 };
+
+// Limits für Eingaben – alles darüber wird abgelehnt statt gekürzt.
+const MAX_NAME = 100;
+const MAX_EMAIL = 254;
+const MAX_PHONE = 40;
+const MAX_MESSAGE = 5000;
+const MIN_MESSAGE = 10;
+
+// Mindestzeit zwischen Laden und Absenden des Formulars (Bots sind schneller).
+const MIN_FILL_MS = 3_000;
+// Formular-Zeitstempel verfällt nach dieser Zeit.
+const MAX_FILL_MS = 24 * 60 * 60 * 1000;
+
+// Rate-Limit pro IP und global. Hinweis: gilt pro Server-Instanz (In-Memory);
+// für harten Schutz zusätzlich Turnstile aktivieren (TURNSTILE_SECRET_KEY).
+const IP_WINDOW_MS = 60 * 60 * 1000;
+const IP_MAX_PER_WINDOW = 3;
+const GLOBAL_WINDOW_MS = 60 * 60 * 1000;
+const GLOBAL_MAX_PER_WINDOW = 20;
+
+const ipHits = new Map<string, number[]>();
+let globalHits: number[] = [];
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+
+  globalHits = globalHits.filter((t) => now - t < GLOBAL_WINDOW_MS);
+  if (globalHits.length >= GLOBAL_MAX_PER_WINDOW) return true;
+
+  const hits = (ipHits.get(ip) ?? []).filter((t) => now - t < IP_WINDOW_MS);
+  if (hits.length >= IP_MAX_PER_WINDOW) {
+    ipHits.set(ip, hits);
+    return true;
+  }
+
+  hits.push(now);
+  ipHits.set(ip, hits);
+  globalHits.push(now);
+
+  // Map nicht unbegrenzt wachsen lassen.
+  if (ipHits.size > 5000) {
+    for (const [key, times] of ipHits) {
+      if (times.every((t) => now - t >= IP_WINDOW_MS)) ipHits.delete(key);
+    }
+  }
+  return false;
+}
 
 function escapeHtml(str: string): string {
   return str
@@ -26,38 +63,124 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#039;");
 }
 
+function field(formData: FormData, key: string): string {
+  const value = formData.get(key);
+  return typeof value === "string" ? value.trim() : "";
+}
+
+// Einzeilige Felder: Steuerzeichen (inkl. CR/LF) sind nie legitim.
+const CONTROL_CHARS = /[\u0000-\u001f\u007f]/;
+// Nachricht: Zeilenumbrüche/Tabs erlaubt, andere Steuerzeichen nicht.
+const MESSAGE_CONTROL_CHARS = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/;
+const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[a-z]{2,}$/i;
+const PHONE_RE = /^[+0-9 ()/.-]*$/;
+const URL_RE = /(https?:\/\/|www\.)/i;
+const URL_RE_ALL = /(https?:\/\/|www\.)/gi;
+
+async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) return true; // Captcha nicht konfiguriert
+  if (!token) return false;
+
+  try {
+    const body = new URLSearchParams({ secret, response: token });
+    if (ip !== "unknown") body.set("remoteip", ip);
+    const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      body,
+    });
+    const data = (await res.json()) as { success?: boolean };
+    return data.success === true;
+  } catch (error) {
+    console.error("Turnstile verification failed:", error);
+    return false;
+  }
+}
+
+const GENERIC_SUCCESS: FormState = {
+  success: true,
+  message: "Ihre Nachricht wurde erfolgreich gesendet. Ich melde mich zeitnah bei Ihnen!",
+};
+
 export async function sendEmail(formData: FormData): Promise<FormState> {
   const headersList = await headers();
-  const ip = headersList.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
+  const ip =
+    headersList.get("x-real-ip") ??
+    headersList.get("x-forwarded-for")?.split(",")[0].trim() ??
+    "unknown";
+
+  // Honeypot: für Menschen unsichtbares Feld. Bots bekommen eine Scheinbestätigung.
+  if (field(formData, "company_website")) {
+    return GENERIC_SUCCESS;
+  }
+
+  const startedAt = Number(field(formData, "form_started_at"));
+  const elapsed = Date.now() - startedAt;
+  if (!Number.isFinite(startedAt) || elapsed < MIN_FILL_MS || elapsed > MAX_FILL_MS) {
+    return {
+      success: false,
+      message: "Bitte laden Sie die Seite neu und versuchen Sie es erneut.",
+    };
+  }
+
+  const name = field(formData, "name");
+  const email = field(formData, "email");
+  const phone = field(formData, "phone");
+  const message = field(formData, "message");
+
+  if (!name || !email || !message) {
+    return { success: false, message: "Bitte füllen Sie alle Pflichtfelder aus." };
+  }
+
+  if (
+    name.length > MAX_NAME ||
+    email.length > MAX_EMAIL ||
+    phone.length > MAX_PHONE ||
+    message.length > MAX_MESSAGE ||
+    CONTROL_CHARS.test(name) ||
+    CONTROL_CHARS.test(email) ||
+    CONTROL_CHARS.test(phone) ||
+    MESSAGE_CONTROL_CHARS.test(message) ||
+    !EMAIL_RE.test(email) ||
+    !PHONE_RE.test(phone)
+  ) {
+    return { success: false, message: "Bitte überprüfen Sie Ihre Eingaben." };
+  }
+
+  if (message.length < MIN_MESSAGE) {
+    return { success: false, message: "Bitte beschreiben Sie Ihr Anliegen etwas ausführlicher." };
+  }
+
+  // Links im Namen sind typisch für Spam; viele Links in der Nachricht ebenso.
+  if (URL_RE.test(name) || (message.match(URL_RE_ALL)?.length ?? 0) > 3) {
+    return { success: false, message: "Bitte entfernen Sie Links aus Ihrer Nachricht." };
+  }
+
+  if (!(await verifyTurnstile(field(formData, "cf-turnstile-response"), ip))) {
+    return {
+      success: false,
+      message: "Die Sicherheitsprüfung ist fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    };
+  }
 
   if (isRateLimited(ip)) {
     return {
       success: false,
-      message: "Bitte warten Sie einen Moment, bevor Sie erneut eine Nachricht senden.",
+      message: "Zu viele Anfragen. Bitte versuchen Sie es später erneut oder rufen Sie mich an.",
     };
   }
 
-  const name = (formData.get("name") as string).trim();
-  const email = (formData.get("email") as string).trim();
-  const message = (formData.get("message") as string).trim();
-  const phone = ((formData.get("phone") as string) ?? "").trim();
-
-  if (!name || !email || !message) {
-    return {
-      success: false,
-      message: "Bitte füllen Sie alle Felder aus.",
-    };
-  }
-
+  const smtpHost = process.env.SMTP_HOST;
+  const smtpPort = Number(process.env.SMTP_PORT || 465);
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
-  const smtpTo = process.env.SMTP_TO || "kontakt@nm-tech-it.de";
-  const smtpFrom = process.env.SMTP_FROM || "Kontakt@nm-tech-it.de";
+  const smtpTo = process.env.SMTP_TO;
+  const smtpFrom = process.env.SMTP_FROM;
 
-  if (!smtpUser || !smtpPass) {
+  if (!smtpHost || !smtpUser || !smtpPass || !smtpTo || !smtpFrom) {
     return {
       success: false,
-      message: "Der E-Mail-Versand ist zurzeit nicht konfiguriert.",
+      message: "Der E-Mail-Versand ist zurzeit nicht verfügbar. Bitte kontaktieren Sie mich telefonisch.",
     };
   }
 
@@ -68,21 +191,24 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
 
   try {
     const transporter = nodemailer.createTransport({
-      host: "smtp.mailbox.org",
-      port: 465,
-      secure: true,
+      host: smtpHost,
+      port: smtpPort,
+      secure: smtpPort === 465,
+      requireTLS: smtpPort !== 465,
       auth: {
         user: smtpUser,
         pass: smtpPass,
       },
     });
 
-    // Benachrichtigung an dich
+    // Es wird ausschließlich an die fest hinterlegte Adresse (SMTP_TO) gesendet.
+    // Bewusst KEINE Bestätigungsmail an die eingegebene Adresse: darüber konnten
+    // Bots beliebige Empfänger mit eigenem Text über diesen SMTP anschreiben.
     await transporter.sendMail({
-      from: `"NM-TECH IT Kontaktformular" <${smtpFrom}>`,
-      replyTo: email,
+      from: { name: "NM-TECH IT Kontaktformular", address: smtpFrom },
+      replyTo: { name, address: email },
       to: smtpTo,
-      subject: `Kontaktanfrage von ${name} - NM-TECH IT`,
+      subject: "Neue Kontaktanfrage – NM-TECH IT",
       text: `Name: ${name}\nE-Mail: ${email}${phone ? `\nTelefon: ${phone}` : ""}\n\nNachricht:\n${message}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
@@ -97,30 +223,7 @@ export async function sendEmail(formData: FormData): Promise<FormState> {
       `,
     });
 
-    // Bestätigungsmail an den Absender
-    await transporter.sendMail({
-      from: `"NM-TECH IT" <${smtpFrom}>`,
-      to: email,
-      subject: `Ihre Anfrage bei NM-TECH IT – Bestätigung`,
-      text: `Hallo ${name},\n\nvielen Dank für Ihre Nachricht! Ich habe Ihre Anfrage erhalten und melde mich zeitnah bei Ihnen.\n\nIhre Nachricht:\n${message}\n\nMit freundlichen Grüßen\nNikita Aleschkin\nNM-TECH IT`,
-      html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
-          <h2 style="color: #333; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;">Vielen Dank für Ihre Anfrage!</h2>
-          <p>Hallo ${safeName},</p>
-          <p>ich habe Ihre Nachricht erhalten und melde mich zeitnah bei Ihnen.</p>
-          <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 5px; border-left: 4px solid #cccccc;">
-            <p style="margin: 0 0 8px 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Ihre Nachricht</p>
-            <p style="margin: 0; white-space: pre-wrap;">${safeMessage}</p>
-          </div>
-          <p style="margin-top: 20px;">Mit freundlichen Grüßen<br><strong>Nikita Aleschkin</strong><br>NM-TECH IT</p>
-        </div>
-      `,
-    });
-
-    return {
-      success: true,
-      message: "Ihre Nachricht wurde erfolgreich gesendet. Ich melde mich zeitnah bei Ihnen!",
-    };
+    return GENERIC_SUCCESS;
   } catch (error) {
     console.error("SMTP Error:", error);
     return {
