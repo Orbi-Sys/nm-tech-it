@@ -1,11 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Script from "next/script";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { sendEmail } from "@/app/actions/sendEmail";
 
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+declare global {
+  interface Window {
+    turnstile?: { reset: (widget?: string | HTMLElement) => void };
+  }
+}
+
 export function Contact() {
+  const startedAt = useRef<number>(0);
+  useEffect(() => {
+    startedAt.current = Date.now();
+  }, []);
+
   const [focused, setFocused] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
@@ -17,6 +31,7 @@ export function Contact() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    formData.set("form_started_at", String(startedAt.current));
 
     try {
       const result = await sendEmail(formData);
@@ -24,6 +39,7 @@ export function Contact() {
         setStatus("success");
         setStatusMessage(result.message);
         form.reset();
+        startedAt.current = Date.now();
       } else {
         setStatus("error");
         setStatusMessage(result.message);
@@ -34,6 +50,8 @@ export function Contact() {
       setStatusMessage(
         "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal."
       );
+    } finally {
+      window.turnstile?.reset();
     }
   };
 
@@ -94,6 +112,18 @@ export function Contact() {
           onSubmit={handleSubmit}
           className="glass-strong rounded-2xl p-8 md:p-12 glow-ring space-y-6"
         >
+          {/* Honeypot gegen Bots – für Menschen unsichtbar */}
+          <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+            <label htmlFor="company_website">Website</label>
+            <input
+              id="company_website"
+              name="company_website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
+
           <div>
             <label htmlFor="name" className="block text-xs tracking-widest uppercase text-silver-dim mb-2">
               Name
@@ -103,6 +133,8 @@ export function Contact() {
               name="name"
               type="text"
               required
+              maxLength={100}
+              autoComplete="name"
               onFocus={() => setFocused("name")}
               onBlur={() => setFocused(null)}
               className={`${inputClass} ${
@@ -123,6 +155,8 @@ export function Contact() {
               name="email"
               type="email"
               required
+              maxLength={254}
+              autoComplete="email"
               onFocus={() => setFocused("email")}
               onBlur={() => setFocused(null)}
               className={`${inputClass} ${
@@ -142,6 +176,8 @@ export function Contact() {
               id="phone"
               name="phone"
               type="tel"
+              maxLength={40}
+              autoComplete="tel"
               onFocus={() => setFocused("phone")}
               onBlur={() => setFocused(null)}
               className={`${inputClass} ${
@@ -162,6 +198,8 @@ export function Contact() {
               name="message"
               rows={5}
               required
+              minLength={10}
+              maxLength={5000}
               onFocus={() => setFocused("message")}
               onBlur={() => setFocused(null)}
               className={`${inputClass} resize-none ${
@@ -172,6 +210,16 @@ export function Contact() {
               placeholder="Beschreiben Sie Ihr Projekt..."
             />
           </div>
+
+          {TURNSTILE_SITE_KEY && (
+            <>
+              <Script
+                src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+                strategy="afterInteractive"
+              />
+              <div className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-theme="dark" />
+            </>
+          )}
 
           {status !== "idle" && (
             <motion.div
