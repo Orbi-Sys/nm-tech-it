@@ -11,6 +11,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://nm-tech-it.de/faq",
   },
+  openGraph: {
+    title: "Häufige Fragen (FAQ) – KI, Automatisierung & Webentwicklung | NM-TECH IT",
+    description:
+      "Antworten auf häufige Fragen zu Webentwicklung, KI-Integration, Automatisierung, Kosten und Ablauf.",
+    url: "https://nm-tech-it.de/faq",
+    images: ["/opengraph-image"],
+    siteName: "NM-TECH IT",
+    locale: "de_DE",
+    type: "website",
+  },
 };
 
 const faqSchema = {

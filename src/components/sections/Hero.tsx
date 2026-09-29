@@ -71,8 +71,8 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-silver-dim leading-relaxed"
         >
-          Ich entwickle hochwertige digitale Lösungen für Unternehmen – modern,
-          performant und zukunftssicher.
+          Ich entwickle hochwertige digitale Lösungen für Unternehmen in Lastrup,
+          Cloppenburg und dem Emsland – modern, performant und zukunftssicher.
         </motion.p>
 
         <motion.div
