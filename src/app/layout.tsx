@@ -126,6 +126,8 @@ export default function RootLayout({
           "Make",
           "Zapier",
           "Microsoft Power Automate",
+          "42°OS",
+          "Prozessoptimierung",
           "API-Anbindungen",
           "Dashboards",
           "Webentwicklung",

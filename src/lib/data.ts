@@ -168,13 +168,14 @@ Auf Wunsch übernehme ich auch das Cloud-Hosting und die laufende Wartung Ihrer 
       "Workflow-Automatisierung Mittelstand",
       "Automatisierung kleines Unternehmen",
       "Prozessoptimierung Lastrup",
+      "42°OS Integration",
       "NM-TECH IT",
     ],
     intro:
       "Jeder Betrieb hat Aufgaben, die sich jeden Tag wiederholen: Daten von einem Programm ins nächste übertragen, E-Mails sortieren, Dokumente erstellen, Listen pflegen. Diese Arbeit kostet Zeit, ist fehleranfällig und hält niemanden im Unternehmen wirklich voran. Ich automatisiere genau solche Abläufe – sodass sie zuverlässig im Hintergrund laufen, ohne dass jemand sie manuell anstoßen muss.",
     body: `Der wichtigste Effekt ist gewonnene Zeit. Wiederkehrende Abläufe, die heute mehrere Stunden im Monat kosten, laufen automatisiert in Sekunden. Der zweite große Vorteil: weniger Fehler. Wo Menschen Zahlen abtippen oder Daten kopieren, passieren Flüchtigkeitsfehler. Eine Automatisierung macht denselben Schritt jedes Mal exakt gleich. Dazu kommen geringere Kosten, spürbar entlastete Mitarbeiter und schnellere Reaktionszeiten gegenüber Ihren Kunden.
 
-Ich bin auf kein einzelnes Werkzeug festgelegt. Ob n8n (selbst gehostet oder in der Cloud), Make, Zapier, Microsoft Power Automate oder eigene Scripts – ich wähle das, was am besten zu Ihren bestehenden Systemen und Anforderungen passt. Bei datensensiblen Abläufen bietet sich oft ein selbst gehostetes n8n an, weil Ihre Daten dann vollständig unter Ihrer Kontrolle bleiben und keine laufenden Nutzungslimits entstehen. Für einfachere Verbindungen zwischen gängigen Tools sind Make oder Zapier oft schneller eingerichtet.
+Ich bin auf kein einzelnes Werkzeug festgelegt. Ob n8n (selbst gehostet oder in der Cloud), Make, Zapier, Microsoft Power Automate, die KI-Plattform 42°OS oder eigene Scripts – ich wähle das, was am besten zu Ihren bestehenden Systemen und Anforderungen passt. Bei datensensiblen Abläufen bietet sich oft ein selbst gehostetes n8n an, weil Ihre Daten dann vollständig unter Ihrer Kontrolle bleiben und keine laufenden Nutzungslimits entstehen. Für einfachere Verbindungen zwischen gängigen Tools sind Make oder Zapier oft schneller eingerichtet.
 
 Jeder Workflow erhält ein Error-Handling. Tritt ein Problem auf, werden Sie automatisch benachrichtigt – per E-Mail oder über Ihren bevorzugten Kanal. Fehlerhafte Durchläufe werden pausiert statt einfach „verschluckt", sodass keine Daten verloren gehen und der Vorgang nach der Behebung sauber weiterläuft.`,
     features: [
@@ -191,7 +192,7 @@ Jeder Workflow erhält ein Error-Handling. Tritt ein Problem auf, werden Sie aut
       {
         icon: "brain",
         heading: "Welche Tools ich einsetze",
-        body: "Ob n8n (selbst gehostet oder in der Cloud), Make, Zapier, Microsoft Power Automate oder eigene Scripts – ich wähle das, was am besten zu Ihren bestehenden Systemen und Anforderungen passt.",
+        body: "Ob n8n (selbst gehostet oder in der Cloud), Make, Zapier, Microsoft Power Automate, die KI-Plattform 42°OS oder eigene Scripts – ich wähle das, was am besten zu Ihren bestehenden Systemen und Anforderungen passt.",
       },
       {
         icon: "code",
@@ -528,6 +529,7 @@ export const techStack = [
   "Zapier",
   "LangChain",
   "Power Automate",
+  "42°OS",
   "Microsoft Graph API",
   "HubSpot",
   "MongoDB",

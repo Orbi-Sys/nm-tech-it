@@ -29,7 +29,7 @@ export function GET() {
 
   const body = `# NM-TECH IT
 
-> NM-TECH IT ist das IT-Unternehmen von Nikita Aleschkin, Software Engineer und Digitalisierungspartner aus Lastrup (Landkreis Cloppenburg, Niedersachsen). Schwerpunkte sind individuelle Softwareentwicklung (interne Tools, Kundenportale, MVPs), KI-Integrationen (Chatbots, KI-Agenten, Dokumentenanalyse, DSGVO-konform) und Prozess- und Workflow-Automatisierung mit n8n, Make, Zapier und Power Automate, ergänzt durch API-Anbindungen, Dashboards und Web-Apps mit Next.js. Zielgruppe sind kleine und mittlere Unternehmen in Lastrup, Cloppenburg, Vechta, Oldenburg, dem Emsland und ganz Deutschland (auch remote).
+> NM-TECH IT ist das IT-Unternehmen von Nikita Aleschkin, Software Engineer und Digitalisierungspartner aus Lastrup (Landkreis Cloppenburg, Niedersachsen). Schwerpunkte sind individuelle Softwareentwicklung (interne Tools, Kundenportale, MVPs), KI-Integrationen (Chatbots, KI-Agenten, Dokumentenanalyse, DSGVO-konform) und Prozess- und Workflow-Automatisierung mit n8n, Make, Zapier, Power Automate und der KI-Plattform 42°OS, ergänzt durch API-Anbindungen, Dashboards und Web-Apps mit Next.js. Zielgruppe sind kleine und mittlere Unternehmen in Lastrup, Cloppenburg, Vechta, Oldenburg, dem Emsland und ganz Deutschland (auch remote).
 
 ## Kontakt
 
