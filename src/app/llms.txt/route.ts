@@ -1,4 +1,5 @@
 import { faqCategories, leistungenData, projects, services } from "@/lib/data";
+import { landingPages } from "@/lib/landingPages";
 
 export const dynamic = "force-static";
 
@@ -13,6 +14,10 @@ export function GET() {
       const l = leistungenData[slug];
       return `- [${l.title}](${baseUrl}/leistungen/${slug}): ${l.metaDescription}`;
     })
+    .join("\n");
+
+  const themen = Object.values(landingPages)
+    .map((p) => `- [${p.title}](${baseUrl}${p.path}): ${p.metaDescription}`)
     .join("\n");
 
   const referenzen = projects
@@ -42,6 +47,10 @@ export function GET() {
 ## Leistungen
 
 ${leistungen}
+
+## Regionen, Branchen und Lösungen
+
+${themen}
 
 ## Referenzprojekte
 
