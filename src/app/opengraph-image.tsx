@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const alt =
-  "NM-TECH IT – Webentwicklung, KI-Integration & Automatisierung aus Lastrup";
+  "NM-TECH IT – Softwareentwicklung, KI-Integration & Automatisierung aus Lastrup";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -30,7 +30,7 @@ export default async function Image() {
             Software Engineer & Digitalisierungspartner
           </div>
           <div style={{ fontSize: 58, lineHeight: 1.1, marginTop: 24 }}>
-            Websites, KI-Integration & Automatisierung
+            Software, KI & Automatisierung
           </div>
           <div style={{ fontSize: 28, color: "#c8c8c8", marginTop: 28 }}>
             Nikita Aleschkin · Lastrup · Cloppenburg · Emsland

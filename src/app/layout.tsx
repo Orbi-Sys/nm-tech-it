@@ -22,19 +22,20 @@ const syne = Syne({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nm-tech-it.de"),
-  title: "Webentwicklung, KI & Automatisierung in Lastrup & Cloppenburg | NM-TECH IT",
+  title: "Softwareentwicklung, KI & Automatisierung in Lastrup & Cloppenburg | NM-TECH IT",
   description:
-    "Nikita Aleschkin – Software Engineer & Digitalisierungspartner aus Lastrup. Moderne Websites, KI-Integrationen und Prozessautomatisierung für Unternehmen in Cloppenburg, Vechta und dem Emsland. Kostenloses Erstgespräch.",
+    "Nikita Aleschkin – Software Engineer aus Lastrup. Individuelle Software, KI-Integrationen und Prozessautomatisierung für Unternehmen in Cloppenburg, Vechta und dem Emsland. Kostenloses Erstgespräch.",
   keywords: [
+    "Softwareentwicklung Lastrup",
+    "Softwareentwickler Cloppenburg",
+    "Individuelle Software Emsland",
+    "KI Integration Unternehmen",
+    "KI-Systeme Mittelstand",
+    "Prozessautomatisierung Niedersachsen",
+    "Workflow Automation n8n",
     "Software Engineer Lastrup",
-    "Webentwickler Cloppenburg",
     "IT Freelancer Niedersachsen",
     "Digitalisierungspartner",
-    "Webentwicklung Next.js",
-    "KI Integration Unternehmen",
-    "Workflow Automation n8n",
-    "KI-Systeme Mittelstand",
-    "Webseite erstellen Niedersachsen",
     "NM-TECH IT",
     "Nikita Aleschkin",
   ],
@@ -56,9 +57,9 @@ export const metadata: Metadata = {
     icon: "/logo.ico",
   },
   openGraph: {
-    title: "Webentwicklung, KI & Automatisierung in Lastrup & Cloppenburg | NM-TECH IT",
+    title: "Softwareentwicklung, KI & Automatisierung in Lastrup & Cloppenburg | NM-TECH IT",
     description:
-      "Moderne Websites, KI-Integrationen und Prozessautomatisierung für Unternehmen in Lastrup, Cloppenburg, Vechta und dem Emsland.",
+      "Individuelle Software, KI-Integrationen und Prozessautomatisierung für Unternehmen in Lastrup, Cloppenburg, Vechta und dem Emsland.",
     url: "https://nm-tech-it.de",
     siteName: "NM-TECH IT",
     locale: "de_DE",
@@ -116,8 +117,7 @@ export default function RootLayout({
         priceRange: "€€",
         founder: { "@id": "https://nm-tech-it.de/#nikita-aleschkin" },
         knowsAbout: [
-          "Webentwicklung",
-          "Next.js",
+          "Softwareentwicklung",
           "Künstliche Intelligenz",
           "KI-Integration",
           "Chatbots",
@@ -128,7 +128,8 @@ export default function RootLayout({
           "Microsoft Power Automate",
           "API-Anbindungen",
           "Dashboards",
-          "Individuelle Softwareentwicklung",
+          "Webentwicklung",
+          "Next.js",
         ],
         hasOfferCatalog: {
           "@type": "OfferCatalog",
@@ -144,7 +145,7 @@ export default function RootLayout({
           })),
         },
         description:
-          "Nikita Aleschkin – Software Engineer & Digitalisierungspartner aus Lastrup. Moderne Websites, KI-Integrationen und Prozessautomatisierung für Unternehmen in Cloppenburg, Vechta und dem Emsland.",
+          "Nikita Aleschkin – Software Engineer aus Lastrup. Individuelle Software, KI-Integrationen und Prozessautomatisierung für Unternehmen in Cloppenburg, Vechta und dem Emsland.",
       },
       {
         "@type": "Person",

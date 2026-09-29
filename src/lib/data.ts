@@ -10,12 +10,12 @@ export const navLinks = [
 
 export const services = [
   {
-    title: "Webentwicklung",
-    slug: "webentwicklung",
+    title: "Individuelle Softwarelösungen",
+    slug: "individuelle-softwareloesungen",
     description:
-      "Hochperformante, moderne Websites und Web-Apps mit Next.js – schnell, skalierbar und zukunftssicher.",
-    icon: "code",
-    href: "/leistungen/webentwicklung",
+      "Maßgeschneiderte Software exakt auf Ihre Anforderungen – von MVP bis Enterprise.",
+    icon: "cube",
+    href: "/leistungen/individuelle-softwareloesungen",
   },
   {
     title: "KI-Integration",
@@ -50,12 +50,12 @@ export const services = [
     href: "/leistungen/dashboards",
   },
   {
-    title: "Individuelle Softwarelösungen",
-    slug: "individuelle-softwareloesungen",
+    title: "Webentwicklung",
+    slug: "webentwicklung",
     description:
-      "Maßgeschneiderte Software exakt auf Ihre Anforderungen – von MVP bis Enterprise.",
-    icon: "cube",
-    href: "/leistungen/individuelle-softwareloesungen",
+      "Hochperformante, moderne Websites und Web-Apps mit Next.js – schnell, skalierbar und zukunftssicher.",
+    icon: "code",
+    href: "/leistungen/webentwicklung",
   },
 ] as const;
 

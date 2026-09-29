@@ -62,7 +62,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight metallic-text max-w-5xl mx-auto"
         >
-          Moderne Webseiten, KI-Systeme & intelligente Automationen.
+          Individuelle Software, KI-Systeme & intelligente Automationen.
         </motion.h1>
 
         <motion.p
@@ -71,8 +71,8 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.25 }}
           className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-silver-dim leading-relaxed"
         >
-          Ich entwickle hochwertige digitale Lösungen für Unternehmen in Lastrup,
-          Cloppenburg und dem Emsland – modern, performant und zukunftssicher.
+          Ich entwickle maßgeschneiderte Software, KI-Lösungen und Automatisierungen
+          für Unternehmen in Lastrup, Cloppenburg und dem Emsland.
         </motion.p>
 
         <motion.div
