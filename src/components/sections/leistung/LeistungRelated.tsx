@@ -11,10 +11,15 @@ const iconMap: Record<LeistungSlug, string> = {
   "individuelle-softwareloesungen": "cube",
 };
 
-export function LeistungRelated({ currentSlug }: { currentSlug: LeistungSlug }) {
-  const otherSlugs = (Object.keys(leistungenData) as LeistungSlug[]).filter(
-    (s) => s !== currentSlug
-  );
+export function LeistungRelated({
+  currentSlug,
+  slugs,
+}: {
+  currentSlug?: LeistungSlug;
+  slugs?: readonly LeistungSlug[];
+}) {
+  const otherSlugs =
+    slugs ?? (Object.keys(leistungenData) as LeistungSlug[]).filter((s) => s !== currentSlug);
 
   return (
     <section className="relative py-16 md:py-24">

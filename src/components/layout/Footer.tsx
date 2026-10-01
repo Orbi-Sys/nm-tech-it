@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CircuitAccent } from "@/components/ui/CircuitAccent";
+import { landingPages } from "@/lib/landingPages";
 
 const footerLinks = [
   { label: "Über mich", href: "/#about" },
@@ -24,7 +25,7 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start gap-4">
             <Link href="/" className="flex items-center gap-4">
               <div className="relative w-[80px] h-[80px] shrink-0">
-                <Image src="/logo.png" alt="NM-TECH IT" width={80} height={80} priority unoptimized />
+                <Image src="/logo.png" alt="NM-TECH IT" width={80} height={80} />
               </div>
               <div>
                 <span className="font-display text-lg font-bold tracking-wider metallic-text block">
@@ -51,6 +52,21 @@ export function Footer() {
           </nav>
 
         </div>
+
+        <nav
+          aria-label="Themen"
+          className="mt-10 flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3"
+        >
+          {Object.values(landingPages).map((page) => (
+            <Link
+              key={page.path}
+              href={page.path}
+              className="text-xs text-silver-dim hover:text-gold-bright transition-colors"
+            >
+              {page.navLabel}
+            </Link>
+          ))}
+        </nav>
 
         <div className="mt-12 pt-8 border-t border-gold/10 text-center text-sm text-silver-dim">
           © {year} NM-TECH IT – Nikita Aleschkin. Alle Rechte vorbehalten.

@@ -37,8 +37,7 @@ export function Navbar() {
               alt="NM-TECH IT Logo"
               width={96}
               height={96}
-              priority
-              unoptimized
+              sizes="96px"
               style={{ width: "100%", height: "auto" }}
               className="object-contain transition-transform duration-300 group-hover:scale-105"
             />

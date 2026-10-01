@@ -42,6 +42,7 @@ export async function generateMetadata({
       title: data.metaTitle,
       description: data.metaDescription,
       url: `https://nm-tech-it.de/leistungen/${slug}`,
+      images: ["/opengraph-image"],
       siteName: "NM-TECH IT",
       locale: "de_DE",
       type: "website",
@@ -50,6 +51,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: data.metaTitle,
       description: data.metaDescription,
+      images: ["/opengraph-image"],
     },
   };
 }
@@ -100,11 +102,21 @@ export default async function LeistungPage({
     ],
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Startseite", item: "https://nm-tech-it.de" },
+      { "@type": "ListItem", position: 2, name: "Leistungen", item: "https://nm-tech-it.de/#services" },
+      { "@type": "ListItem", position: 3, name: data.title, item: `https://nm-tech-it.de/leistungen/${slug}` },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-bg-deep text-silver antialiased">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, breadcrumbJsonLd]) }}
       />
       <Navbar />
       <main>

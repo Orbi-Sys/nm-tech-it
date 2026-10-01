@@ -24,12 +24,9 @@ export function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-bg-deep to-transparent pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-28 pb-28 md:pt-32 md:pb-36 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85, filter: "blur(12px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0 }}
-          className="mb-1 flex justify-center"
-        >
+        {/* Logo ohne Einblend-Animation: Es ist das LCP-Element, jede Größen- oder
+            Deckkraft-Animation verschiebt den von Google gemessenen Ladezeitpunkt. */}
+        <div className="mb-1 flex justify-center">
           <div className="relative w-[200px] h-[200px] md:w-[320px] md:h-[320px]">
             <div className="absolute -inset-8 bg-gold/10 rounded-full blur-3xl animate-pulse-glow" />
             <Image
@@ -43,11 +40,11 @@ export function Hero() {
               className="relative drop-shadow-[0_0_60px_rgba(212,166,111,0.2)] w-full h-full object-contain"
             />
           </div>
-        </motion.div>
+        </div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ y: 12 }}
+          animate={{ y: 0 }}
           transition={{ delay: 0.1, duration: 0.5 }}
           className="flex flex-col items-center justify-center gap-2 mb-4"
         >
@@ -57,27 +54,27 @@ export function Hero() {
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 24 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight metallic-text max-w-5xl mx-auto"
         >
-          Moderne Webseiten, KI-Systeme & intelligente Automationen.
+          Individuelle Software, KI-Systeme & intelligente Automationen.
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
           className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-silver-dim leading-relaxed"
         >
-          Ich entwickle hochwertige digitale Lösungen für Unternehmen – modern,
-          performant und zukunftssicher.
+          Ich entwickle maßgeschneiderte Software, KI-Lösungen und Automatisierungen
+          für Unternehmen in Lastrup, Cloppenburg und dem Emsland.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-10 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4"
         >

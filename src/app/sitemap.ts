@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { landingPages } from "@/lib/landingPages";
 
 const leistungSlugs = [
   "webentwicklung",
@@ -21,6 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...leistungSlugs.map((slug) => ({
       url: `${baseUrl}/leistungen/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    ...Object.values(landingPages).map((page) => ({
+      url: `${baseUrl}${page.path}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,

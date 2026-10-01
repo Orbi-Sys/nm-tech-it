@@ -18,7 +18,7 @@ export function Services() {
         <SectionHeading
           label="Services"
           title="Digitale Exzellenz"
-          description="Maßgeschneiderte Lösungen für moderne Unternehmen – von der Website bis zur KI-Automation."
+          description="Maßgeschneiderte Lösungen für moderne Unternehmen – von individueller Software über KI bis zur Automatisierung."
         />
 
         <div
