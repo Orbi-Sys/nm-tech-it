@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import { ClientLoadingScreen } from "@/components/layout/ClientLoadingScreen";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { GsapProvider } from "@/components/providers/GsapProvider";
@@ -17,13 +16,6 @@ const Contact  = dynamic(() => import("@/components/sections/Contact").then((m) 
 export default function Home() {
   return (
     <GsapProvider>
-      <div
-        id="nm-veil"
-        className="fixed inset-0 z-[99] bg-bg-deep pointer-events-none"
-        style={{ transition: "opacity 0.5s ease" }}
-        aria-hidden="true"
-      />
-      <ClientLoadingScreen />
       <Navbar />
       <main className="snap-container overflow-x-hidden w-full relative">
         <Hero />

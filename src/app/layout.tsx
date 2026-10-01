@@ -53,9 +53,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/logo.ico",
-  },
   openGraph: {
     title: "Softwareentwicklung, KI & Automatisierung in Lastrup & Cloppenburg | NM-TECH IT",
     description:
@@ -173,12 +170,6 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${inter.variable} ${syne.variable}`}>
       <head>
-        <link
-          rel="preload"
-          href="/logo.webp"
-          as="image"
-          type="image/webp"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
