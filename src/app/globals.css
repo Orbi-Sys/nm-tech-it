@@ -159,6 +159,55 @@ body {
   animation: pulse-glow 4s ease-in-out infinite;
 }
 
+/* Hero: nur Bewegung, keine Deckkraft – der Inhalt ist ab dem ersten Paint sichtbar (LCP). */
+@keyframes hero-rise {
+  from {
+    transform: translateY(var(--rise, 16px));
+  }
+  to {
+    transform: none;
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-fade-in {
+  animation: hero-fade-in 0.8s ease 0.5s both;
+}
+
+@keyframes scroll-hint {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-scroll-hint {
+  animation: scroll-hint 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .hero-fade-in,
+  .animate-scroll-hint {
+    animation: none;
+  }
+}
+
 .font-display {
   font-family: var(--font-display);
 }

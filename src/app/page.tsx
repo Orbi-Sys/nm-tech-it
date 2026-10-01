@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { GsapProvider } from "@/components/providers/GsapProvider";
 import { Hero } from "@/components/sections/Hero";
 
 const About    = dynamic(() => import("@/components/sections/About").then((m) => ({ default: m.About })));
@@ -15,7 +14,7 @@ const Contact  = dynamic(() => import("@/components/sections/Contact").then((m) 
 
 export default function Home() {
   return (
-    <GsapProvider>
+    <>
       <Navbar />
       <main className="snap-container overflow-x-hidden w-full relative">
         <Hero />
@@ -29,6 +28,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </GsapProvider>
+    </>
   );
 }

@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 import { whyUs } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { useGsapReveal } from "@/hooks/useGsapReveal";
+import { useReveal } from "@/hooks/useReveal";
 
 export function WhyUs() {
-  const gridRef = useGsapReveal<HTMLDivElement>({ stagger: 0.08 });
+  const gridRef = useReveal<HTMLDivElement>({ stagger: 0.08 });
 
   return (
     <section id="why" className="relative py-28 md:py-36 snap-section overflow-hidden">

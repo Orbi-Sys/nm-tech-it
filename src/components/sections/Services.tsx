@@ -6,10 +6,10 @@ import { services } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { TiltCard } from "@/components/ui/TiltCard";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
-import { useGsapReveal } from "@/hooks/useGsapReveal";
+import { useReveal } from "@/hooks/useReveal";
 
 export function Services() {
-  const gridRef = useGsapReveal<HTMLDivElement>({ stagger: 0.1 });
+  const gridRef = useReveal<HTMLDivElement>({ stagger: 0.1 });
 
   return (
     <section id="services" className="relative py-28 md:py-36 snap-section overflow-hidden">
