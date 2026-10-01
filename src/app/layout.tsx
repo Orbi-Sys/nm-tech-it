@@ -4,6 +4,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { BackToTop } from "@/components/ui/BackToTop";
+import { MotionProvider } from "@/components/MotionProvider";
 import { services } from "@/lib/data";
 
 const inter = Inter({
@@ -176,8 +177,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-bg-deep text-silver antialiased">
-        {children}
-        <BackToTop />
+        <MotionProvider>
+          {children}
+          <BackToTop />
+        </MotionProvider>
         <Analytics />
         <SpeedInsights />
       </body>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { whyUs } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { useReveal } from "@/hooks/useReveal";

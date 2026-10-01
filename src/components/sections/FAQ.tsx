@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { faqCategories } from "@/lib/data";

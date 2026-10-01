@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import dynamic from "next/dynamic";
 import { AnimatedGrid } from "@/components/ui/AnimatedGrid";
 import { Button } from "@/components/ui/Button";
@@ -28,14 +27,19 @@ export function Hero() {
         <div className="mb-1 flex justify-center">
           <div className="relative w-[200px] h-[200px] md:w-[320px] md:h-[320px]">
             <div className="absolute -inset-8 bg-gold/10 rounded-full blur-3xl animate-pulse-glow" />
-            <Image
-              src="/logo.webp"
+            {/* Fest vorskalierte Dateien statt /_next/image: Sie kommen direkt aus dem
+                CDN-Cache, auch direkt nach einem Deployment, wenn der Bildoptimierer
+                noch keine Kopie hat. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo-hero-360.webp"
+              srcSet="/logo-hero-360.webp 360w, /logo-hero-640.webp 640w"
+              sizes="(max-width: 768px) 200px, 320px"
               alt="NM-TECH IT"
               width={320}
               height={320}
-              priority
               fetchPriority="high"
-              sizes="(max-width: 768px) 200px, 320px"
+              decoding="async"
               className="relative drop-shadow-[0_0_60px_rgba(212,166,111,0.2)] w-full h-full object-contain"
             />
           </div>

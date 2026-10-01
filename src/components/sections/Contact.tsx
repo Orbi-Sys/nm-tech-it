@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
 import { SectionHeading } from "@/components/ui/SectionHeading";
