@@ -87,14 +87,32 @@ export function Particles() {
 
     if (isMobile) return;
 
-    resize();
-    init();
-    draw();
-
-    window.addEventListener("resize", handleResize);
-    document.addEventListener("visibilitychange", handleVisibility);
+    // Erst starten, wenn die Seite geladen ist und der Browser Leerlauf hat,
+    // damit die Animation den ersten Seitenaufbau nicht ausbremst.
+    let started = false;
+    let idleId: number | undefined;
+    const start = () => {
+      if (started) return;
+      started = true;
+      resize();
+      init();
+      draw();
+      window.addEventListener("resize", handleResize);
+      document.addEventListener("visibilitychange", handleVisibility);
+    };
+    const schedule = () => {
+      if ("requestIdleCallback" in window) idleId = window.requestIdleCallback(start, { timeout: 2000 });
+      else idleId = globalThis.setTimeout(start, 200) as unknown as number;
+    };
+    if (document.readyState === "complete") schedule();
+    else window.addEventListener("load", schedule, { once: true });
 
     return () => {
+      window.removeEventListener("load", schedule);
+      if (idleId !== undefined) {
+        if ("cancelIdleCallback" in window) window.cancelIdleCallback(idleId);
+        else globalThis.clearTimeout(idleId);
+      }
       cancelAnimationFrame(animationId);
       window.removeEventListener("resize", handleResize);
       document.removeEventListener("visibilitychange", handleVisibility);

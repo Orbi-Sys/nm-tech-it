@@ -3,61 +3,48 @@
 import { useEffect, useRef } from "react";
 import { processSteps } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { gsap, registerGsap } from "@/lib/gsap";
+import { useReveal } from "@/hooks/useReveal";
+
+const stepOffset = (i: number) =>
+  typeof window !== "undefined" && window.innerWidth >= 768 ? (i % 2 === 0 ? -40 : 40) : 0;
 
 export function Process() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useReveal<HTMLElement>({
+    selector: "[data-step]",
+    stagger: 0,
+    y: 25,
+    x: stepOffset,
+  });
   const lineRef = useRef<HTMLDivElement>(null);
 
+  // Verbindungslinie wächst mit dem Scrollfortschritt durch den Abschnitt.
   useEffect(() => {
-    registerGsap();
     const section = sectionRef.current;
     const line = lineRef.current;
     if (!section || !line) return;
 
-    const ctx = gsap.context(() => {
-      const isMobile = window.innerWidth < 768;
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      // Wie bei ScrollTrigger: Start bei "top 60%", Ende bei "bottom 40%".
+      const rect = section.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const progress = (vh * 0.6 - rect.top) / (rect.height + vh * 0.2);
+      line.style.transform = `scaleY(${Math.min(1, Math.max(0, progress))})`;
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
 
-      gsap.fromTo(
-        line,
-        { scaleY: 0 },
-        {
-          scaleY: 1,
-          ease: "power2.inOut",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 60%",
-            end: "bottom 40%",
-            scrub: 1,
-          },
-        }
-      );
-
-      gsap.utils.toArray<HTMLElement>("[data-step]").forEach((el, i) => {
-        gsap.fromTo(
-          el,
-          { 
-            opacity: 0, 
-            x: isMobile ? 0 : (i % 2 === 0 ? -40 : 40),
-            y: isMobile ? 25 : 0
-          },
-          {
-            opacity: 1,
-            x: 0,
-            y: 0,
-            duration: 0.8,
-            scrollTrigger: {
-              trigger: el,
-              start: "top 85%",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, [sectionRef]);
 
   return (
     <section id="process" ref={sectionRef} className="relative py-28 md:py-36 snap-section overflow-hidden">

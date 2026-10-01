@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { AnimatedGrid } from "@/components/ui/AnimatedGrid";
@@ -42,41 +41,26 @@ export function Hero() {
           </div>
         </div>
 
-        <motion.div
-          initial={{ y: 12 }}
-          animate={{ y: 0 }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          className="flex flex-col items-center justify-center gap-2 mb-4"
+        <div
+          className="hero-rise [--rise:12px] [animation-delay:0.1s] flex flex-col items-center justify-center gap-2 mb-4"
         >
           <span className="text-sm md:text-base text-gold-bright uppercase tracking-[0.3em]">
             Software Engineer & Digitalisierungspartner
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ y: 24 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight metallic-text max-w-5xl mx-auto"
+        <h1 className="hero-rise [--rise:24px] [animation-delay:0.15s] font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight metallic-text max-w-5xl mx-auto"
         >
           Individuelle Software, KI-Systeme & intelligente Automationen.
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ y: 20 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-silver-dim leading-relaxed"
+        <p className="hero-rise [--rise:20px] [animation-delay:0.25s] mt-8 max-w-2xl mx-auto text-base md:text-lg text-silver-dim leading-relaxed"
         >
           Ich entwickle maßgeschneiderte Software, KI-Lösungen und Automatisierungen
           für Unternehmen in Lastrup, Cloppenburg und dem Emsland.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ y: 16 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="mt-10 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4"
+        <div className="hero-rise [--rise:16px] [animation-delay:0.35s] mt-10 sm:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button href="#contact" variant="primary">
             Projekt starten
@@ -84,22 +68,14 @@ export function Hero() {
           <Button href="#faq" variant="secondary">
             Häufige Fragen
           </Button>
-        </motion.div>
+        </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        className="absolute bottom-14 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+      <div className="hero-fade-in absolute bottom-14 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
       >
         <span className="text-[10px] tracking-widest uppercase text-silver-dim">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent"
-        />
-      </motion.div>
+        <div className="animate-scroll-hint w-px h-12 bg-gradient-to-b from-white/40 to-transparent" />
+      </div>
     </section>
   );
 }

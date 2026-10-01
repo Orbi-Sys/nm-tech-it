@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 import { projects } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { useGsapReveal } from "@/hooks/useGsapReveal";
+import { useReveal } from "@/hooks/useReveal";
 
 export function Projects() {
-  const gridRef = useGsapReveal<HTMLDivElement>({ y: 80, stagger: 0.15 });
+  const gridRef = useReveal<HTMLDivElement>({ y: 80, stagger: 0.15 });
 
   return (
     <section id="projects" className="relative py-28 md:py-36 snap-section overflow-hidden">
