@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { techStack } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { TiltCard } from "@/components/ui/TiltCard";
 import { ServiceIcon } from "@/components/ui/ServiceIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
