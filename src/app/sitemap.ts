@@ -8,6 +8,7 @@ const leistungSlugs = [
   "api-anbindungen",
   "dashboards",
   "individuelle-softwareloesungen",
+  "seo-google-sichtbarkeit",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

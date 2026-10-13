@@ -57,6 +57,14 @@ export const services = [
     icon: "code",
     href: "/leistungen/webentwicklung",
   },
+  {
+    title: "SEO & Google-Sichtbarkeit",
+    slug: "seo-google-sichtbarkeit",
+    description:
+      "Einmaliges SEO-Paket zum Festpreis: technische Optimierung, Google-Unternehmensprofil und Branchenverzeichnisse – ohne Abo.",
+    icon: "chart",
+    href: "/leistungen/seo-google-sichtbarkeit",
+  },
 ] as const;
 
 export type LeistungSlug =
@@ -65,7 +73,8 @@ export type LeistungSlug =
   | "ki-automatisierung"
   | "api-anbindungen"
   | "dashboards"
-  | "individuelle-softwareloesungen";
+  | "individuelle-softwareloesungen"
+  | "seo-google-sichtbarkeit";
 
 export type LeistungData = {
   slug: LeistungSlug;
@@ -148,7 +157,7 @@ Auf Wunsch übernehme ich auch das Cloud-Hosting und die laufende Wartung Ihrer 
     ctaHeading: "Sehen Sie Ihre neue Website, bevor Sie sich entscheiden.",
     ctaBody:
       "Auf Wunsch erstelle ich Ihnen vorab einen kostenlosen, unverbindlichen Designentwurf – nur wenn er Ihnen gefällt, setzen wir das Projekt um. Den genauen Festpreis besprechen wir nach einem kostenlosen Erstgespräch, abhängig vom Umfang Ihrer Seite. So wissen Sie von Anfang an, woran Sie sind, ohne versteckte Kosten.",
-    relatedSlugs: ["ki-automatisierung", "dashboards"],
+    relatedSlugs: ["seo-google-sichtbarkeit", "ki-automatisierung"],
   },
 
   "ki-automatisierung": {
@@ -473,6 +482,71 @@ Individuelle Software steht selten für sich allein. Häufig fließen andere Lei
       "Erzählen Sie mir in einem kostenlosen Erstgespräch, woran Ihr aktueller Ablauf hakt oder welche Idee Sie umsetzen möchten. Gemeinsam finden wir heraus, ob eine individuelle Lösung der richtige Weg ist – ehrlich, auch wenn manchmal eine einfachere Variante schon ausreicht.",
     relatedSlugs: ["webentwicklung", "api-anbindungen"],
   },
+  "seo-google-sichtbarkeit": {
+    slug: "seo-google-sichtbarkeit",
+    title: "SEO & Google-Sichtbarkeit",
+    tagline: "Einmaliges SEO-Paket zum Festpreis: technische Optimierung, Google-Unternehmensprofil und Branchenverzeichnisse – ohne monatliches Abo.",
+    metaTitle: "SEO Lastrup & Cloppenburg | Einmaliges SEO-Paket zum Festpreis | NM-TECH IT",
+    metaDescription:
+      "Bei Google und in KI-Suchen gefunden werden: technische SEO-Optimierung, Google-Unternehmensprofil, Branchenverzeichnisse und Search Console als einmaliges Paket zum Festpreis. Für Unternehmen in Lastrup, Cloppenburg, Vechta und dem Emsland.",
+    keywords: [
+      "SEO Lastrup",
+      "SEO Cloppenburg",
+      "Suchmaschinenoptimierung Vechta",
+      "Google Unternehmensprofil einrichten",
+      "lokale SEO Emsland",
+      "SEO Festpreis",
+      "technische SEO Optimierung",
+      "Google Search Console einrichten",
+      "bei Google gefunden werden",
+      "NM-TECH IT",
+    ],
+    intro:
+      "Die beste Website bringt wenig, wenn sie bei Google niemand findet. Viele Unternehmen in der Region haben eine ordentliche Seite, aber kein gepflegtes Google-Unternehmensprofil, fehlerhafte Einträge in Verzeichnissen und technische Fehler, die das Ranking bremsen. Mit meinem SEO-Paket bringe ich das einmal sauber in Ordnung – zum Festpreis und ohne monatliches Abo.",
+    body: `Das Paket startet mit einer Analyse Ihrer bestehenden Website: Ladezeit, mobile Darstellung, Seitentitel und Beschreibungen, Überschriften, strukturierte Daten und Indexierung. Gefundene Fehler behebe ich direkt, egal ob die Seite von mir stammt oder mit WordPress, Wix oder einem anderen System gebaut wurde. Dazu kommen Texte, die genau die Begriffe enthalten, nach denen Ihre Kunden in der Region suchen.
+
+Für lokale Unternehmen ist das Google-Unternehmensprofil oft wichtiger als die Website selbst. Ich richte es vollständig ein oder überarbeite es: Kategorien, Leistungen, Öffnungszeiten, Fotos und ein einfacher Weg, Kunden um Bewertungen zu bitten. Anschließend trage ich Ihr Unternehmen in die wichtigsten Branchenverzeichnisse ein, mit überall exakt gleichem Namen, gleicher Adresse und Telefonnummer. Genau diese Einheitlichkeit wertet Google aus – und auch KI-Suchen wie ChatGPT oder Perplexity, die zunehmend Empfehlungen aussprechen.
+
+Zum Abschluss richte ich Google Search Console und Bing Webmaster Tools ein und zeige Ihnen in einer kurzen Einweisung, wie Sie Profil und Bewertungen selbst pflegen. Ein ehrliches Wort zum Schluss: Seriöse SEO kann keine Platz-1-Garantie geben. Was ich Ihnen zusage, ist eine technisch saubere Grundlage und ein vollständiger lokaler Auftritt – die Basis, auf der gute Platzierungen entstehen. Wenn Ihre Website ohnehin neu entstehen soll, ist das Paket Teil der [Webentwicklung](/leistungen/webentwicklung).`,
+    features: [
+      {
+        icon: "code",
+        heading: "Technischer SEO-Check & Optimierung",
+        body: "Ladezeit, mobile Darstellung, Seitentitel, Metadaten und strukturierte Daten prüfen und Fehler direkt beheben.",
+      },
+      {
+        icon: "cube",
+        heading: "Google-Unternehmensprofil",
+        body: "Vollständig einrichten oder überarbeiten: Kategorien, Leistungen, Fotos und ein einfacher Weg zu mehr Bewertungen.",
+      },
+      {
+        icon: "api",
+        heading: "Branchenverzeichnisse",
+        body: "Einträge bei Gelbe Seiten, Das Örtliche, Bing Places, Apple Maps und Co. – überall mit identischen Firmendaten.",
+      },
+      {
+        icon: "chart",
+        heading: "Search Console & Bing Webmaster Tools",
+        body: "Einrichten und Sitemap einreichen, damit Sie sehen, mit welchen Suchbegriffen Kunden Sie finden.",
+      },
+      {
+        icon: "brain",
+        heading: "Sichtbar in KI-Suchen",
+        body: "Strukturierte, zitierfähige Inhalte, damit ChatGPT, Perplexity und Google-KI-Antworten Ihr Unternehmen kennen.",
+      },
+    ],
+    useCases: [
+      "Technischer SEO-Check & Optimierung: Ladezeit, mobile Darstellung, Seitentitel, Metadaten und strukturierte Daten prüfen und Fehler direkt beheben.",
+      "Google-Unternehmensprofil: Vollständig einrichten oder überarbeiten – Kategorien, Leistungen, Fotos und ein einfacher Weg zu mehr Bewertungen.",
+      "Branchenverzeichnisse: Einträge bei Gelbe Seiten, Das Örtliche, Bing Places, Apple Maps und Co. – überall mit identischen Firmendaten.",
+      "Search Console & Bing Webmaster Tools: Einrichten und Sitemap einreichen, damit Sie sehen, mit welchen Suchbegriffen Kunden Sie finden.",
+      "Sichtbar in KI-Suchen: Strukturierte, zitierfähige Inhalte, damit ChatGPT, Perplexity und Google-KI-Antworten Ihr Unternehmen kennen.",
+    ],
+    ctaHeading: "Wie gut werden Sie heute bei Google gefunden?",
+    ctaBody:
+      "Im kostenlosen Erstgespräch schaue ich mir Ihre Website und Ihr Google-Profil an und zeige Ihnen, wo die größten Lücken sind. Danach bekommen Sie einen Festpreis für das Paket – einmalig, ohne Abo und ohne versteckte Folgekosten.",
+    relatedSlugs: ["webentwicklung", "ki-automatisierung"],
+  },
 };
 
 export const projects = [
@@ -705,7 +779,7 @@ export const faqCategories = [
       {
         question: "Sind die entwickelten Webseiten für Google optimiert (SEO) und mobilfreundlich?",
         answer:
-          "Ja, ausnahmslos. Jede Seite wird nach dem 'Mobile First'-Prinzip gestaltet, um auf Smartphones perfekt zu funktionieren. Durch den Einsatz von Next.js erreichen wir überragende Ladezeiten, was zusammen mit sauberer Metadaten-Struktur und semantischem HTML die ideale Basis für Ihr Google-Ranking bildet.",
+          "Ja, ausnahmslos. Jede Seite wird nach dem 'Mobile First'-Prinzip gestaltet, um auf Smartphones perfekt zu funktionieren. Durch den Einsatz von Next.js erreichen wir überragende Ladezeiten, was zusammen mit sauberer Metadaten-Struktur und semantischem HTML die ideale Basis für Ihr Google-Ranking bildet. Für bestehende Websites gibt es zusätzlich ein einmaliges SEO-Paket zum Festpreis, inklusive Google-Unternehmensprofil und Branchenverzeichnissen.",
       },
       {
         question: "Sind die erstellten Webseiten und Systeme DSGVO-konform?",

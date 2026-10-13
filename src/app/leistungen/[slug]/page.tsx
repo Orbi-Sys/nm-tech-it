@@ -16,6 +16,7 @@ const iconMap: Record<LeistungSlug, string> = {
   "api-anbindungen": "api",
   dashboards: "chart",
   "individuelle-softwareloesungen": "cube",
+  "seo-google-sichtbarkeit": "chart",
 };
 
 export async function generateStaticParams() {
